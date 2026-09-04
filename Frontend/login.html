@@ -1,0 +1,358 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Login</title>
+
+
+    <!-- Login JavaScript -->
+
+    <script src="Backend.js"></script>
+
+
+    <style>
+
+        body {
+            font-family: Arial, sans-serif;
+
+            background-image: url("back.jpg");
+
+            background-size: cover;
+
+            background-position: center;
+
+            background-repeat: no-repeat;
+
+            margin: 0;
+
+            min-height: 100vh;
+        }
+
+
+        .box {
+            background-color: rgba(
+                255,
+                255,
+                255,
+                0.8
+            );
+
+            width: 280px;
+
+            margin: 50px auto;
+
+            padding: 20px;
+
+            box-shadow:
+                0 0 10px gray;
+
+            border-radius: 10px;
+        }
+
+
+        h1 {
+            color: #0a66c2;
+
+            text-align: center;
+        }
+
+
+        input {
+            width: 95%;
+
+            padding: 8px;
+
+            margin: 5px 0;
+
+            border: 1px solid #ccc;
+
+            border-radius: 5px;
+
+            font-size: 14px;
+        }
+
+
+        input:focus {
+            outline: none;
+
+            border-color: #0a66c2;
+        }
+
+
+        button {
+            width: 100%;
+
+            padding: 10px;
+
+            background: #0a66c2;
+
+            color: white;
+
+            border: none;
+
+            border-radius: 20px;
+
+            cursor: pointer;
+
+            font-size: 15px;
+
+            font-weight: bold;
+        }
+
+
+        button:hover {
+            background: #084f96;
+        }
+
+
+        button:disabled {
+            background: #7ca9d1;
+
+            cursor: not-allowed;
+        }
+
+
+        a {
+            color: #0a66c2;
+
+            text-decoration: none;
+        }
+
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+
+        #message {
+            min-height: 20px;
+
+            font-size: 14px;
+
+            font-weight: bold;
+
+            text-align: center;
+        }
+
+
+        .portal {
+            margin-top: 25px;
+
+            padding-top: 15px;
+
+            border-top: 1px solid #ddd;
+        }
+
+
+        .portal p {
+            font-size: 14px;
+
+            line-height: 1.5;
+        }
+
+
+        footer {
+            background: #222;
+
+            color: #aaa;
+
+            text-align: center;
+
+            padding: 20px;
+
+            font-size: 0.85rem;
+
+            margin-top: 40px;
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <div class="box">
+
+
+        <!-- Campus2Career Logo -->
+
+        <img
+            src="logo.png"
+            alt="Campus2Career"
+            style="
+                width: 100%;
+                max-width: 280px;
+                display: block;
+                margin: 0 auto 20px;
+            "
+        >
+
+
+        <h1>
+            Sign in
+        </h1>
+
+
+        <p>
+            Stay updated on your professional world
+        </p>
+
+
+        <!-- =================================
+             LOGIN FORM
+        ================================== -->
+
+        <form
+            id="loginForm"
+            autocomplete="on"
+        >
+
+
+            <!-- Email -->
+
+            <input
+                type="email"
+                id="email"
+                name="email"
+                placeholder="Email"
+                autocomplete="email"
+                required
+            >
+
+
+            <!-- Password -->
+
+            <input
+                type="password"
+                id="password"
+                name="password"
+                placeholder="Password"
+                autocomplete="current-password"
+                required
+            >
+
+
+            <!-- Message -->
+
+            <p id="message"></p>
+
+
+            <!-- Forgot Password -->
+
+            <p>
+                <a href="#">
+                    Forgot Password?
+                </a>
+            </p>
+
+
+            <!-- Sign In -->
+
+            <button
+                type="submit"
+                id="signinBtn"
+            >
+                Sign In
+            </button>
+
+
+        </form>
+
+
+        <!-- =================================
+             SIGNUP
+        ================================== -->
+
+        <p>
+            New User?
+            <a href="signup.html">
+                Sign Up
+            </a>
+        </p>
+
+
+        <!-- =================================
+             COMPANY / INSTITUTION PORTALS
+        ================================== -->
+
+        <div class="portal">
+
+
+            <p>
+
+                <strong>
+                    For Companies
+                </strong>
+
+                <br>
+
+                Register your company and post
+                opportunities, jobs, internships
+                and other content.
+
+                <br>
+
+                <a href="company-signin.html">
+                    Company Login Portal
+                </a>
+
+            </p>
+
+
+            <p>
+
+                <strong>
+                    For Educational Institutions
+                </strong>
+
+                <br>
+
+                Access NSEC and provide courses,
+                learning resources and educational
+                content.
+
+                <br>
+
+                <a href="InstitutionLogin.html">
+                    Institution Login Portal
+                </a>
+
+            </p>
+
+
+        </div>
+
+
+    </div>
+
+
+    <!-- =================================
+         FOOTER
+    ================================== -->
+
+    <footer>
+
+        <p>
+            &copy; 2026 Higher Education Department,
+            Government of West Bengal.
+            Designed for Centralised Admissions.
+        </p>
+
+    </footer>
+
+
+</body>
+
+</html>
+

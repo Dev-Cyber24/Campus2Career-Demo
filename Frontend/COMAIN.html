@@ -1,0 +1,1668 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Company Portal | Campus2Career</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet"
+    >
+
+    <link rel="stylesheet" href="CoMain.css">
+</head>
+
+<body>
+
+<!-- =========================================================
+     HEADER
+========================================================= -->
+
+<header class="top-header">
+
+    <div class="header-left">
+
+        <a href="company-portal.html" class="brand">
+            <img src="logo.png" alt="Campus2Career">
+        </a>
+
+        <div class="global-search">
+            <span class="search-icon">⌕</span>
+            <input
+                type="text"
+                id="globalSearch"
+                placeholder="Search candidates, jobs..."
+                autocomplete="off"
+            >
+        </div>
+
+    </div>
+
+    <div class="header-right">
+
+        <button class="header-action" id="notificationBtn" title="Notifications">
+            <span>🔔</span>
+            <span class="notification-badge">4</span>
+        </button>
+
+        <button class="header-action" id="messagesBtn" title="Messages">
+            <span>✉</span>
+            <span class="notification-badge">2</span>
+        </button>
+
+        <button class="theme-button" id="themeToggle" title="Toggle theme">
+            ☾
+        </button>
+
+        <div class="company-header-profile" id="headerCompanyProfile">
+
+            <img
+                id="headerCompanyLogo"
+                src="https://via.placeholder.com/50"
+                alt="Company Logo"
+            >
+
+            <div class="header-company-name">
+                <strong id="headerCompanyName">Your Company</strong>
+                <span>Recruiter Account</span>
+            </div>
+
+            <span class="header-chevron">⌄</span>
+
+        </div>
+
+        <div class="header-dropdown" id="headerDropdown">
+
+            <button data-action="company-profile">
+                🏢 Company Profile
+            </button>
+
+            <button data-action="settings">
+                ⚙ Settings
+            </button>
+
+            <button data-action="logout">
+                ↪ Logout
+            </button>
+
+        </div>
+
+    </div>
+
+</header>
+
+
+<!-- =========================================================
+     MAIN LAYOUT
+========================================================= -->
+
+<div class="portal-layout">
+
+    <!-- =====================================================
+         SIDEBAR
+    ====================================================== -->
+
+    <aside class="sidebar">
+
+        <div class="company-sidebar-card">
+
+            <div class="company-cover"></div>
+
+            <div class="company-sidebar-content">
+
+                <div class="sidebar-logo-wrapper">
+                    <img
+                        id="sidebarCompanyLogo"
+                        src="https://via.placeholder.com/100"
+                        alt="Company Logo"
+                    >
+                </div>
+
+                <h2 id="sidebarCompanyName">Your Company</h2>
+
+                <p id="sidebarCompanyIndustry">
+                    Technology
+                </p>
+
+                <p class="company-location">
+                    <span>📍</span>
+                    <span id="sidebarCompanyLocation">
+                        Kolkata, India
+                    </span>
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <nav class="sidebar-navigation">
+
+            <button
+                class="sidebar-link active"
+                data-section="dashboardSection"
+            >
+                <span class="sidebar-icon">⌂</span>
+                <span>Dashboard</span>
+            </button>
+
+            <button
+                class="sidebar-link"
+                data-section="jobsSection"
+            >
+                <span class="sidebar-icon">▣</span>
+                <span>Jobs & Internships</span>
+            </button>
+
+            <button
+                class="sidebar-link"
+                data-section="applicantsSection"
+            >
+                <span class="sidebar-icon">♙</span>
+                <span>Applicants</span>
+                <span class="sidebar-count" id="sidebarApplicantCount">0</span>
+            </button>
+
+            <button
+                class="sidebar-link"
+                data-section="pipelineSection"
+            >
+                <span class="sidebar-icon">⇢</span>
+                <span>Hiring Pipeline</span>
+            </button>
+
+            <button
+                class="sidebar-link"
+                data-section="candidateSearchSection"
+            >
+                <span class="sidebar-icon">⌕</span>
+                <span>Candidate Search</span>
+            </button>
+
+            <button
+                class="sidebar-link"
+                data-section="analyticsSection"
+            >
+                <span class="sidebar-icon">▥</span>
+                <span>Analytics</span>
+            </button>
+
+            <button
+                class="sidebar-link"
+                data-section="companyProfileSection"
+            >
+                <span class="sidebar-icon">🏢</span>
+                <span>Company Profile</span>
+            </button>
+
+            <button
+                class="sidebar-link"
+                data-section="settingsSection"
+            >
+                <span class="sidebar-icon">⚙</span>
+                <span>Settings</span>
+            </button>
+
+        </nav>
+
+
+        <div class="sidebar-divider"></div>
+
+
+        <div class="sidebar-stats">
+
+            <div class="sidebar-stat">
+                <span>Active Jobs</span>
+                <strong id="sidebarJobCount">0</strong>
+            </div>
+
+            <div class="sidebar-stat">
+                <span>Applications</span>
+                <strong id="sidebarApplicationsCount">0</strong>
+            </div>
+
+            <div class="sidebar-stat">
+                <span>Selected</span>
+                <strong id="sidebarSelectedCount">0</strong>
+            </div>
+
+        </div>
+
+
+        <button class="logout-sidebar" id="logoutSidebarBtn">
+            <span>↪</span>
+            Logout
+        </button>
+
+    </aside>
+
+
+    <!-- =====================================================
+         CONTENT
+    ====================================================== -->
+
+    <main class="main-content">
+
+
+        <!-- =================================================
+             DASHBOARD
+        ================================================== -->
+
+        <section id="dashboardSection" class="portal-section active-section">
+
+            <div class="section-header">
+
+                <div>
+                    <span class="eyebrow">COMPANY DASHBOARD</span>
+
+                    <h1>
+                        Welcome, <span id="dashboardCompanyName">
+                            Your Company
+                        </span>
+                    </h1>
+
+                    <p>
+                        Manage your hiring activities, job openings,
+                        and candidates from one place.
+                    </p>
+                </div>
+
+                <div class="header-actions">
+
+                    <button
+                        class="secondary-button"
+                        id="viewApplicantsDashboardBtn"
+                    >
+                        View Applicants
+                    </button>
+
+                    <button
+                        class="primary-button"
+                        id="postJobDashboardBtn"
+                    >
+                        + Post a Job
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- Stats -->
+
+            <div class="stats-grid">
+
+                <div class="stat-card">
+
+                    <div class="stat-card-top">
+                        <span class="stat-icon blue">▣</span>
+                        <span class="stat-trend positive">+12%</span>
+                    </div>
+
+                    <span class="stat-label">
+                        Active Jobs
+                    </span>
+
+                    <strong id="activeJobsCount">0</strong>
+
+                    <span class="stat-description">
+                        Currently accepting applications
+                    </span>
+
+                </div>
+
+
+                <div class="stat-card">
+
+                    <div class="stat-card-top">
+                        <span class="stat-icon purple">♙</span>
+                        <span class="stat-trend positive">+18%</span>
+                    </div>
+
+                    <span class="stat-label">
+                        Total Applications
+                    </span>
+
+                    <strong id="totalApplicantsCount">0</strong>
+
+                    <span class="stat-description">
+                        Applications received
+                    </span>
+
+                </div>
+
+
+                <div class="stat-card">
+
+                    <div class="stat-card-top">
+                        <span class="stat-icon orange">★</span>
+                        <span class="stat-trend positive">+8%</span>
+                    </div>
+
+                    <span class="stat-label">
+                        Shortlisted
+                    </span>
+
+                    <strong id="shortlistedCount">0</strong>
+
+                    <span class="stat-description">
+                        Candidates under consideration
+                    </span>
+
+                </div>
+
+
+                <div class="stat-card">
+
+                    <div class="stat-card-top">
+                        <span class="stat-icon green">✓</span>
+                        <span class="stat-trend positive">+5%</span>
+                    </div>
+
+                    <span class="stat-label">
+                        Selected
+                    </span>
+
+                    <strong id="selectedCount">0</strong>
+
+                    <span class="stat-description">
+                        Candidates successfully hired
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <!-- Dashboard Grid -->
+
+            <div class="dashboard-grid">
+
+
+                <!-- Active Jobs -->
+
+                <div class="dashboard-card">
+
+                    <div class="card-header">
+
+                        <div>
+                            <h2>Active Hiring</h2>
+                            <p>Your current job openings</p>
+                        </div>
+
+                        <button
+                            class="text-button"
+                            data-open-section="jobsSection"
+                        >
+                            View All
+                        </button>
+
+                    </div>
+
+                    <div id="dashboardJobs" class="dashboard-job-list">
+                    </div>
+
+                </div>
+
+
+                <!-- Recent Applicants -->
+
+                <div class="dashboard-card">
+
+                    <div class="card-header">
+
+                        <div>
+                            <h2>Recent Applicants</h2>
+                            <p>Latest candidates who applied</p>
+                        </div>
+
+                        <button
+                            class="text-button"
+                            data-open-section="applicantsSection"
+                        >
+                            View All
+                        </button>
+
+                    </div>
+
+                    <div id="dashboardApplicants"
+                         class="dashboard-applicant-list">
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- Hiring Overview -->
+
+            <div class="dashboard-card overview-card">
+
+                <div class="card-header">
+
+                    <div>
+                        <h2>Hiring Overview</h2>
+                        <p>Candidate movement through your hiring process</p>
+                    </div>
+
+                </div>
+
+
+                <div class="overview-pipeline">
+
+                    <div class="overview-stage">
+                        <div class="overview-number" id="overviewPending">0</div>
+                        <span>Pending Review</span>
+                    </div>
+
+                    <div class="overview-arrow">→</div>
+
+                    <div class="overview-stage">
+                        <div class="overview-number" id="overviewShortlisted">0</div>
+                        <span>Shortlisted</span>
+                    </div>
+
+                    <div class="overview-arrow">→</div>
+
+                    <div class="overview-stage">
+                        <div class="overview-number" id="overviewInterview">0</div>
+                        <span>Interview</span>
+                    </div>
+
+                    <div class="overview-arrow">→</div>
+
+                    <div class="overview-stage">
+                        <div class="overview-number" id="overviewSelected">0</div>
+                        <span>Selected</span>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             JOBS
+        ================================================== -->
+
+        <section id="jobsSection" class="portal-section">
+
+            <div class="section-header">
+
+                <div>
+                    <span class="eyebrow">RECRUITMENT</span>
+
+                    <h1>Jobs & Internships</h1>
+
+                    <p>
+                        Create and manage opportunities for students
+                        and professionals.
+                    </p>
+                </div>
+
+                <button
+                    class="primary-button"
+                    id="postJobBtn"
+                >
+                    + Post New Opportunity
+                </button>
+
+            </div>
+
+
+            <div class="filter-bar">
+
+                <div class="filter-search">
+
+                    <span>⌕</span>
+
+                    <input
+                        type="text"
+                        id="jobSearch"
+                        placeholder="Search jobs..."
+                    >
+
+                </div>
+
+                <select id="jobTypeFilter">
+                    <option value="all">All Types</option>
+                    <option value="Full Time">Full Time</option>
+                    <option value="Part Time">Part Time</option>
+                    <option value="Internship">Internship</option>
+                    <option value="Contract">Contract</option>
+                </select>
+
+                <select id="jobStatusFilter">
+                    <option value="all">All Status</option>
+                    <option value="Active">Active</option>
+                    <option value="Closed">Closed</option>
+                </select>
+
+            </div>
+
+
+            <div id="jobsGrid" class="jobs-grid">
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             APPLICANTS
+        ================================================== -->
+
+        <section id="applicantsSection" class="portal-section">
+
+            <div class="section-header">
+
+                <div>
+                    <span class="eyebrow">CANDIDATE MANAGEMENT</span>
+
+                    <h1>Applicants</h1>
+
+                    <p>
+                        Review applications and manage candidates
+                        throughout your hiring process.
+                    </p>
+                </div>
+
+            </div>
+
+
+            <div class="applicant-controls">
+
+                <div class="filter-search">
+
+                    <span>⌕</span>
+
+                    <input
+                        type="text"
+                        id="applicantSearch"
+                        placeholder="Search applicants..."
+                    >
+
+                </div>
+
+                <select id="applicantStatusFilter">
+                    <option value="all">All Status</option>
+                    <option value="Pending">Pending</option>
+                    <option value="Reviewed">Reviewed</option>
+                    <option value="Shortlisted">Shortlisted</option>
+                    <option value="Interview">Interview</option>
+                    <option value="Selected">Selected</option>
+                    <option value="Rejected">Rejected</option>
+                </select>
+
+                <select id="applicantJobFilter">
+                    <option value="all">All Jobs</option>
+                </select>
+
+            </div>
+
+
+            <div class="applicants-card">
+
+                <div class="table-wrapper">
+
+                    <table class="applicant-table">
+
+                        <thead>
+
+                            <tr>
+                                <th>Candidate</th>
+                                <th>Applied For</th>
+                                <th>Experience</th>
+                                <th>Applied</th>
+                                <th>Status</th>
+                                <th>Action</th>
+                            </tr>
+
+                        </thead>
+
+                        <tbody id="applicantTableBody">
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             HIRING PIPELINE
+        ================================================== -->
+
+        <section id="pipelineSection" class="portal-section">
+
+            <div class="section-header">
+
+                <div>
+                    <span class="eyebrow">HIRING PROCESS</span>
+
+                    <h1>Hiring Pipeline</h1>
+
+                    <p>
+                        Track every candidate from application to hiring.
+                    </p>
+                </div>
+
+            </div>
+
+
+            <div class="pipeline-board">
+
+                <div class="pipeline-column">
+
+                    <div class="pipeline-column-header">
+                        <span>Pending Review</span>
+                        <span class="pipeline-count" id="pendingPipelineCount">
+                            0
+                        </span>
+                    </div>
+
+                    <div
+                        id="pendingPipeline"
+                        class="pipeline-cards"
+                    >
+                    </div>
+
+                </div>
+
+
+                <div class="pipeline-column">
+
+                    <div class="pipeline-column-header">
+                        <span>Shortlisted</span>
+                        <span class="pipeline-count" id="shortlistedPipelineCount">
+                            0
+                        </span>
+                    </div>
+
+                    <div
+                        id="shortlistedPipeline"
+                        class="pipeline-cards"
+                    >
+                    </div>
+
+                </div>
+
+
+                <div class="pipeline-column">
+
+                    <div class="pipeline-column-header">
+                        <span>Interview</span>
+                        <span class="pipeline-count" id="interviewPipelineCount">
+                            0
+                        </span>
+                    </div>
+
+                    <div
+                        id="interviewPipeline"
+                        class="pipeline-cards"
+                    >
+                    </div>
+
+                </div>
+
+
+                <div class="pipeline-column">
+
+                    <div class="pipeline-column-header">
+                        <span>Selected</span>
+                        <span class="pipeline-count" id="selectedPipelineCount">
+                            0
+                        </span>
+                    </div>
+
+                    <div
+                        id="selectedPipeline"
+                        class="pipeline-cards"
+                    >
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             CANDIDATE SEARCH
+        ================================================== -->
+
+        <section id="candidateSearchSection" class="portal-section">
+
+            <div class="section-header">
+
+                <div>
+                    <span class="eyebrow">TALENT DISCOVERY</span>
+
+                    <h1>Candidate Search</h1>
+
+                    <p>
+                        Discover candidates based on skills,
+                        education, location and experience.
+                    </p>
+                </div>
+
+            </div>
+
+
+            <div class="candidate-search-box">
+
+                <div class="candidate-search-input">
+
+                    <span>⌕</span>
+
+                    <input
+                        id="candidateSearchInput"
+                        type="text"
+                        placeholder="Search by name, skill, education..."
+                    >
+
+                </div>
+
+                <select id="candidateLocationFilter">
+                    <option value="all">All Locations</option>
+                    <option value="Kolkata">Kolkata</option>
+                    <option value="Bangalore">Bangalore</option>
+                    <option value="Delhi">Delhi</option>
+                    <option value="Mumbai">Mumbai</option>
+                    <option value="Hyderabad">Hyderabad</option>
+                </select>
+
+                <select id="candidateExperienceFilter">
+                    <option value="all">Any Experience</option>
+                    <option value="0">Fresher</option>
+                    <option value="1">1+ Years</option>
+                    <option value="2">2+ Years</option>
+                    <option value="3">3+ Years</option>
+                </select>
+
+            </div>
+
+
+            <div
+                id="candidateSearchResults"
+                class="candidate-results"
+            >
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             ANALYTICS
+        ================================================== -->
+
+        <section id="analyticsSection" class="portal-section">
+
+            <div class="section-header">
+
+                <div>
+                    <span class="eyebrow">RECRUITMENT INSIGHTS</span>
+
+                    <h1>Hiring Analytics</h1>
+
+                    <p>
+                        Understand your recruitment performance.
+                    </p>
+                </div>
+
+                <select id="analyticsPeriod">
+                    <option value="30">Last 30 Days</option>
+                    <option value="90">Last 90 Days</option>
+                    <option value="365">Last Year</option>
+                </select>
+
+            </div>
+
+
+            <div class="analytics-grid">
+
+                <div class="analytics-card">
+
+                    <span>Applications</span>
+
+                    <strong id="analyticsApplications">
+                        0
+                    </strong>
+
+                    <small>
+                        Total applications
+                    </small>
+
+                </div>
+
+
+                <div class="analytics-card">
+
+                    <span>Shortlist Rate</span>
+
+                    <strong id="analyticsShortlistRate">
+                        0%
+                    </strong>
+
+                    <small>
+                        Applications shortlisted
+                    </small>
+
+                </div>
+
+
+                <div class="analytics-card">
+
+                    <span>Selection Rate</span>
+
+                    <strong id="analyticsSelectionRate">
+                        0%
+                    </strong>
+
+                    <small>
+                        Applications selected
+                    </small>
+
+                </div>
+
+
+                <div class="analytics-card">
+
+                    <span>Open Positions</span>
+
+                    <strong id="analyticsOpenJobs">
+                        0
+                    </strong>
+
+                    <small>
+                        Active vacancies
+                    </small>
+
+                </div>
+
+            </div>
+
+
+            <div class="analytics-panels">
+
+                <div class="dashboard-card">
+
+                    <div class="card-header">
+
+                        <div>
+                            <h2>Applications by Job</h2>
+                            <p>Candidate demand for your openings</p>
+                        </div>
+
+                    </div>
+
+                    <div
+                        id="applicationsByJob"
+                        class="chart-list"
+                    >
+                    </div>
+
+                </div>
+
+
+                <div class="dashboard-card">
+
+                    <div class="card-header">
+
+                        <div>
+                            <h2>Hiring Funnel</h2>
+                            <p>Candidate progression</p>
+                        </div>
+
+                    </div>
+
+                    <div
+                        id="analyticsFunnel"
+                        class="funnel-list"
+                    >
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             COMPANY PROFILE
+        ================================================== -->
+
+        <section id="companyProfileSection" class="portal-section">
+
+            <div class="section-header">
+
+                <div>
+                    <span class="eyebrow">COMPANY INFORMATION</span>
+
+                    <h1>Company Profile</h1>
+
+                    <p>
+                        Maintain the information candidates see
+                        when exploring your company.
+                    </p>
+                </div>
+
+                <button
+                    class="primary-button"
+                    id="saveCompanyBtn"
+                >
+                    Save Changes
+                </button>
+
+            </div>
+
+
+            <div class="profile-editor">
+
+                <div class="profile-editor-main">
+
+                    <div class="editor-card">
+
+                        <h2>Basic Information</h2>
+
+                        <div class="logo-editor">
+
+                            <img
+                                id="editorCompanyLogo"
+                                src="https://via.placeholder.com/120"
+                                alt="Company Logo"
+                            >
+
+                            <div>
+
+                                <label class="upload-button">
+
+                                    Change Logo
+
+                                    <input
+                                        type="file"
+                                        id="companyLogoUpload"
+                                        accept="image/*"
+                                        hidden
+                                    >
+
+                                </label>
+
+                                <p>
+                                    Recommended size: 300 × 300 px
+                                </p>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="form-grid">
+
+                            <div class="form-field">
+
+                                <label>
+                                    Company Name
+                                </label>
+
+                                <input
+                                    id="editCompanyName"
+                                    type="text"
+                                    placeholder="Company name"
+                                >
+
+                            </div>
+
+
+                            <div class="form-field">
+
+                                <label>
+                                    Industry
+                                </label>
+
+                                <input
+                                    id="editIndustry"
+                                    type="text"
+                                    placeholder="e.g. Information Technology"
+                                >
+
+                            </div>
+
+
+                            <div class="form-field">
+
+                                <label>
+                                    Company Size
+                                </label>
+
+                                <select id="editCompanySize">
+                                    <option value="">Select</option>
+                                    <option>1-10 employees</option>
+                                    <option>11-50 employees</option>
+                                    <option>51-200 employees</option>
+                                    <option>201-500 employees</option>
+                                    <option>501-1000 employees</option>
+                                    <option>1000+ employees</option>
+                                </select>
+
+                            </div>
+
+
+                            <div class="form-field">
+
+                                <label>
+                                    Headquarters
+                                </label>
+
+                                <input
+                                    id="editLocation"
+                                    type="text"
+                                    placeholder="City, Country"
+                                >
+
+                            </div>
+
+
+                            <div class="form-field">
+
+                                <label>
+                                    Website
+                                </label>
+
+                                <input
+                                    id="editWebsite"
+                                    type="url"
+                                    placeholder="https://example.com"
+                                >
+
+                            </div>
+
+
+                            <div class="form-field">
+
+                                <label>
+                                    Contact Email
+                                </label>
+
+                                <input
+                                    id="editEmail"
+                                    type="email"
+                                    placeholder="careers@example.com"
+                                >
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="editor-card">
+
+                        <h2>About Company</h2>
+
+                        <div class="form-field">
+
+                            <label>
+                                Company Description
+                            </label>
+
+                            <textarea
+                                id="editAbout"
+                                rows="7"
+                                placeholder="Tell candidates about your company..."
+                            ></textarea>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="editor-card">
+
+                        <h2>Hiring Information</h2>
+
+                        <div class="form-grid">
+
+                            <div class="form-field">
+
+                                <label>
+                                    Careers Email
+                                </label>
+
+                                <input
+                                    id="editCareersEmail"
+                                    type="email"
+                                    placeholder="careers@example.com"
+                                >
+
+                            </div>
+
+
+                            <div class="form-field">
+
+                                <label>
+                                    LinkedIn
+                                </label>
+
+                                <input
+                                    id="editLinkedin"
+                                    type="url"
+                                    placeholder="https://linkedin.com/company/..."
+                                >
+
+                            </div>
+
+
+                            <div class="form-field full">
+
+                                <label>
+                                    Benefits
+                                </label>
+
+                                <textarea
+                                    id="editBenefits"
+                                    rows="4"
+                                    placeholder="Health insurance, remote work, learning budget..."
+                                ></textarea>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <aside class="profile-preview">
+
+                    <h3>Candidate Preview</h3>
+
+                    <div class="preview-company-card">
+
+                        <div class="preview-cover"></div>
+
+                        <img
+                            id="previewCompanyLogo"
+                            src="https://via.placeholder.com/90"
+                            alt="Company"
+                        >
+
+                        <h2 id="previewCompanyName">
+                            Your Company
+                        </h2>
+
+                        <p id="previewIndustry">
+                            Technology
+                        </p>
+
+                        <p id="previewLocation">
+                            Kolkata, India
+                        </p>
+
+                        <div class="preview-divider"></div>
+
+                        <p
+                            id="previewAbout"
+                            class="preview-about"
+                        >
+                            Tell candidates about your company.
+                        </p>
+
+                    </div>
+
+                </aside>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             SETTINGS
+        ================================================== -->
+
+        <section id="settingsSection" class="portal-section">
+
+            <div class="section-header">
+
+                <div>
+                    <span class="eyebrow">ACCOUNT SETTINGS</span>
+
+                    <h1>Settings</h1>
+
+                    <p>
+                        Manage your company portal preferences.
+                    </p>
+                </div>
+
+            </div>
+
+
+            <div class="settings-card">
+
+                <div class="setting-row">
+
+                    <div>
+                        <h3>Email Notifications</h3>
+                        <p>
+                            Receive emails when candidates apply.
+                        </p>
+                    </div>
+
+                    <label class="switch">
+
+                        <input
+                            type="checkbox"
+                            id="emailNotifications"
+                            checked
+                        >
+
+                        <span class="slider"></span>
+
+                    </label>
+
+                </div>
+
+
+                <div class="setting-row">
+
+                    <div>
+                        <h3>New Applicant Alerts</h3>
+                        <p>
+                            Show alerts for new applications.
+                        </p>
+                    </div>
+
+                    <label class="switch">
+
+                        <input
+                            type="checkbox"
+                            id="applicantAlerts"
+                            checked
+                        >
+
+                        <span class="slider"></span>
+
+                    </label>
+
+                </div>
+
+
+                <div class="setting-row">
+
+                    <div>
+                        <h3>Candidate Recommendations</h3>
+                        <p>
+                            Receive recommended candidate suggestions.
+                        </p>
+                    </div>
+
+                    <label class="switch">
+
+                        <input
+                            type="checkbox"
+                            id="candidateRecommendations"
+                            checked
+                        >
+
+                        <span class="slider"></span>
+
+                    </label>
+
+                </div>
+
+
+                <div class="setting-row danger-setting">
+
+                    <div>
+                        <h3>Sign Out</h3>
+                        <p>
+                            Sign out from this company account.
+                        </p>
+                    </div>
+
+                    <button
+                        class="danger-button"
+                        id="logoutSettingsBtn"
+                    >
+                        Logout
+                    </button>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+</div>
+
+
+<!-- =========================================================
+     JOB MODAL
+========================================================= -->
+
+<div
+    class="modal-overlay"
+    id="jobModal"
+>
+
+    <div class="modal-card large-modal">
+
+        <div class="modal-header">
+
+            <div>
+
+                <span class="eyebrow">RECRUITMENT</span>
+
+                <h2 id="jobModalTitle">
+                    Post New Opportunity
+                </h2>
+
+            </div>
+
+            <button
+                class="modal-close"
+                id="closeJobModal"
+            >
+                ×
+            </button>
+
+        </div>
+
+
+        <form id="jobForm">
+
+            <input
+                type="hidden"
+                id="jobId"
+            >
+
+
+            <div class="form-grid">
+
+                <div class="form-field full">
+
+                    <label>
+                        Job / Internship Title *
+                    </label>
+
+                    <input
+                        type="text"
+                        id="jobTitle"
+                        required
+                        placeholder="e.g. Frontend Developer"
+                    >
+
+                </div>
+
+
+                <div class="form-field">
+
+                    <label>
+                        Opportunity Type *
+                    </label>
+
+                    <select id="jobType" required>
+                        <option value="Full Time">Full Time</option>
+                        <option value="Part Time">Part Time</option>
+                        <option value="Internship">Internship</option>
+                        <option value="Contract">Contract</option>
+                    </select>
+
+                </div>
+
+
+                <div class="form-field">
+
+                    <label>
+                        Work Mode
+                    </label>
+
+                    <select id="jobWorkMode">
+                        <option value="On-site">On-site</option>
+                        <option value="Hybrid">Hybrid</option>
+                        <option value="Remote">Remote</option>
+                    </select>
+
+                </div>
+
+
+                <div class="form-field">
+
+                    <label>
+                        Location
+                    </label>
+
+                    <input
+                        id="jobLocation"
+                        type="text"
+                        placeholder="Kolkata, India"
+                    >
+
+                </div>
+
+
+                <div class="form-field">
+
+                    <label>
+                        Experience
+                    </label>
+
+                    <input
+                        id="jobExperience"
+                        type="text"
+                        placeholder="0-2 years"
+                    >
+
+                </div>
+
+
+                <div class="form-field">
+
+                    <label>
+                        Salary / Stipend
+                    </label>
+
+                    <input
+                        id="jobSalary"
+                        type="text"
+                        placeholder="₹4 - ₹7 LPA"
+                    >
+
+                </div>
+
+
+                <div class="form-field">
+
+                    <label>
+                        Application Deadline
+                    </label>
+
+                    <input
+                        id="jobDeadline"
+                        type="date"
+                    >
+
+                </div>
+
+
+                <div class="form-field full">
+
+                    <label>
+                        Required Skills
+                    </label>
+
+                    <input
+                        id="jobSkills"
+                        type="text"
+                        placeholder="JavaScript, React, Node.js, MySQL"
+                    >
+
+                </div>
+
+
+                <div class="form-field full">
+
+                    <label>
+                        Job Description *
+                    </label>
+
+                    <textarea
+                        id="jobDescription"
+                        rows="7"
+                        required
+                        placeholder="Describe responsibilities, requirements and qualifications..."
+                    ></textarea>
+
+                </div>
+
+            </div>
+
+
+            <div class="modal-footer">
+
+                <button
+                    type="button"
+                    class="secondary-button"
+                    id="cancelJobModal"
+                >
+                    Cancel
+                </button>
+
+                <button
+                    type="submit"
+                    class="primary-button"
+                >
+                    Save Opportunity
+                </button>
+
+            </div>
+
+        </form>
+
+    </div>
+
+</div>
+
+
+<!-- =========================================================
+     APPLICANT MODAL
+========================================================= -->
+
+<div
+    class="modal-overlay"
+    id="applicantModal"
+>
+
+    <div class="modal-card applicant-modal-card">
+
+        <div class="modal-header">
+
+            <div>
+
+                <span class="eyebrow">
+                    CANDIDATE PROFILE
+                </span>
+
+                <h2>
+                    Applicant Details
+                </h2>
+
+            </div>
+
+            <button
+                class="modal-close"
+                id="closeApplicantModal"
+            >
+                ×
+            </button>
+
+        </div>
+
+
+        <div id="applicantDetails"></div>
+
+    </div>
+
+</div>
+
+
+<!-- =========================================================
+     NOTIFICATION PANEL
+========================================================= -->
+
+<div
+    class="notification-panel"
+    id="notificationPanel"
+>
+
+    <div class="notification-panel-header">
+        <strong>Notifications</strong>
+
+        <button id="closeNotificationPanel">
+            ×
+        </button>
+    </div>
+
+    <div class="notification-item">
+        <div class="notification-dot blue-dot"></div>
+        <div>
+            <strong>New application</strong>
+            <p>Rahul Sharma applied for Frontend Developer.</p>
+            <small>5 minutes ago</small>
+        </div>
+    </div>
+
+    <div class="notification-item">
+        <div class="notification-dot green-dot"></div>
+        <div>
+            <strong>Candidate shortlisted</strong>
+            <p>Priya Das was added to the interview stage.</p>
+            <small>1 hour ago</small>
+        </div>
+    </div>
+
+    <div class="notification-item">
+        <div class="notification-dot orange-dot"></div>
+        <div>
+            <strong>Application deadline</strong>
+            <p>Data Analyst applications close tomorrow.</p>
+            <small>3 hours ago</small>
+        </div>
+    </div>
+
+</div>
+
+
+<!-- =========================================================
+     TOAST
+========================================================= -->
+
+<div
+    id="toast"
+    class="toast"
+>
+    <span id="toastMessage">
+        Operation completed.
+    </span>
+</div>
+
+
+<script src="COMain.js"></script>
+
+</body>
+</html>

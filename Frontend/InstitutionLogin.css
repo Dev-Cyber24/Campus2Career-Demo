@@ -1,0 +1,550 @@
+/* =========================================
+   CAMPUS2CAREER
+   INSTITUTION LOGIN
+========================================= */
+
+:root {
+
+    --primary: #0a66c2;
+
+    --primary-dark: #004182;
+
+    --primary-light: #e8f3ff;
+
+    --background: #eef4f9;
+
+    --card: #ffffff;
+
+    --text: #172033;
+
+    --muted: #6b7280;
+
+    --border: #dfe5ec;
+
+    --danger: #dc2626;
+
+    --success: #16a34a;
+}
+
+
+* {
+    box-sizing: border-box;
+}
+
+
+body {
+
+    margin: 0;
+
+    min-height: 100vh;
+
+    font-family:
+        Inter,
+        Arial,
+        sans-serif;
+
+    background-image:
+        linear-gradient(
+            rgba(238, 244, 249, 0.75),
+            rgba(248, 250, 252, 0.85)
+        ),
+        url("back.jpg");
+
+    background-size:
+        cover;
+
+    background-position:
+        center;
+
+    background-repeat:
+        no-repeat;
+
+    background-attachment:
+        fixed;
+
+    color:
+        var(--text);
+}
+
+.brand {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.brand img {
+    width: 190px;
+    max-width: 100%;
+    height: auto;
+    display: block;
+    object-fit: contain;
+}
+
+
+button,
+input {
+    font: inherit;
+}
+
+
+/* =========================================
+   PAGE
+========================================= */
+
+.login-page {
+
+    min-height:
+        100vh;
+
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    justify-content:
+        center;
+
+    padding:
+        20px;
+}
+
+
+/* =========================================
+   CARD
+========================================= */
+
+.login-card {
+
+    width:
+        min(
+            440px,
+            100%
+        );
+
+    padding:
+        42px 36px;
+
+    border-radius:
+        20px;
+
+    background:
+        var(--card);
+
+    box-shadow:
+        0 20px 55px
+        rgba(15,23,42,0.10);
+
+    border:
+        1px solid
+        rgba(255,255,255,0.8);
+
+    text-align:
+        left;
+}
+
+
+/* =========================================
+   BRAND
+========================================= */
+
+.brand {
+
+    font-size:
+        26px;
+
+    font-weight:
+        800;
+
+    color:
+        var(--primary);
+
+    text-align:
+        center;
+}
+
+
+.brand span {
+    color:
+        #ef4444;
+}
+
+
+.portal-label {
+
+    width:
+        fit-content;
+
+    margin:
+        12px auto 25px;
+
+    padding:
+        7px 14px;
+
+    border-radius:
+        30px;
+
+    font-size:
+        12px;
+
+    font-weight:
+        700;
+
+    color:
+        var(--primary);
+
+    background:
+        var(--primary-light);
+}
+
+
+/* =========================================
+   TITLE
+========================================= */
+
+.login-card h1 {
+
+    margin:
+        0 0 8px;
+
+    font-size:
+        30px;
+
+    text-align:
+        center;
+}
+
+
+.subtitle {
+
+    margin:
+        0 0 28px;
+
+    color:
+        var(--muted);
+
+    line-height:
+        1.6;
+
+    text-align:
+        center;
+
+    font-size:
+        14px;
+}
+
+
+/* =========================================
+   MESSAGE
+========================================= */
+
+.message {
+
+    display:
+        none;
+
+    padding:
+        12px 14px;
+
+    border-radius:
+        10px;
+
+    font-size:
+        13px;
+
+    margin-bottom:
+        18px;
+}
+
+
+.message.show {
+    display: block;
+}
+
+
+.message.error {
+
+    color:
+        #991b1b;
+
+    background:
+        #fef2f2;
+
+    border:
+        1px solid
+        #fecaca;
+}
+
+
+.message.success {
+
+    color:
+        #166534;
+
+    background:
+        #ecfdf3;
+
+    border:
+        1px solid
+        #bbf7d0;
+}
+
+
+/* =========================================
+   FORM
+========================================= */
+
+.form-group {
+    margin-bottom:
+        18px;
+}
+
+
+.form-group label {
+
+    display:
+        block;
+
+    margin-bottom:
+        8px;
+
+    font-size:
+        14px;
+
+    font-weight:
+        700;
+}
+
+
+.form-group input {
+
+    width:
+        100%;
+
+    padding:
+        13px 14px;
+
+    border:
+        1px solid
+        var(--border);
+
+    border-radius:
+        10px;
+
+    outline:
+        none;
+
+    color:
+        var(--text);
+
+    transition:
+        border-color .2s ease,
+        box-shadow .2s ease;
+}
+
+
+.form-group input:focus {
+
+    border-color:
+        var(--primary);
+
+    box-shadow:
+        0 0 0 4px
+        rgba(10,102,194,0.10);
+}
+
+
+/* =========================================
+   PASSWORD
+========================================= */
+
+.password-box {
+    position: relative;
+}
+
+
+.password-box input {
+    padding-right:
+        68px;
+}
+
+
+.password-box button {
+
+    position:
+        absolute;
+
+    right:
+        8px;
+
+    top:
+        50%;
+
+    transform:
+        translateY(-50%);
+
+    background:
+        transparent;
+
+    border:
+        none;
+
+    color:
+        var(--primary);
+
+    font-size:
+        12px;
+
+    font-weight:
+        700;
+}
+
+
+/* =========================================
+   LOGIN BUTTON
+========================================= */
+
+.login-btn {
+
+    width:
+        100%;
+
+    border:
+        none;
+
+    padding:
+        14px;
+
+    border-radius:
+        10px;
+
+    background:
+        var(--primary);
+
+    color:
+        white;
+
+    font-weight:
+        800;
+
+    transition:
+        .2s ease;
+}
+
+
+.login-btn:hover {
+
+    background:
+        var(--primary-dark);
+
+    transform:
+        translateY(-1px);
+}
+
+
+.login-btn:disabled {
+
+    opacity:
+        .7;
+
+    cursor:
+        not-allowed;
+
+    transform:
+        none;
+}
+
+
+/* =========================================
+   LINKS
+========================================= */
+
+.register-link {
+
+    margin-top:
+        22px;
+
+    text-align:
+        center;
+
+    font-size:
+        13px;
+
+    color:
+        var(--muted);
+
+    line-height:
+        1.7;
+}
+
+
+.register-link a {
+
+    color:
+        var(--primary);
+
+    font-weight:
+        700;
+
+    text-decoration:
+        none;
+}
+
+
+.register-link a:hover {
+    text-decoration:
+        underline;
+}
+
+
+.back-link {
+
+    display:
+        block;
+
+    margin-top:
+        22px;
+
+    text-align:
+        center;
+
+    color:
+        var(--muted);
+
+    font-size:
+        13px;
+
+    text-decoration:
+        none;
+}
+
+
+.back-link:hover {
+
+    color:
+        var(--primary);
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 480px) {
+
+    .brand img {
+        width: 165px;
+    }
+
+    .login-card {
+
+        padding:
+            30px 20px;
+    }
+
+    .login-card h1 {
+
+        font-size:
+            26px;
+    }
+}

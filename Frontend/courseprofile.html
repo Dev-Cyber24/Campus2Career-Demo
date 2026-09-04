@@ -1,0 +1,727 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Course Profile Builder - Campus2Career</title>
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        body {
+            background: #f4f7fb;
+            color: #1f2937;
+        }
+
+        /* ================================
+           HEADER
+        ================================= */
+
+        header {
+            background: #0a66c2;
+            color: white;
+            padding: 18px 30px;
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            box-shadow:
+                0 2px 10px rgba(0,0,0,0.12);
+        }
+
+        header h1 {
+            font-size: 24px;
+        }
+
+        nav {
+            display: flex;
+            gap: 18px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        nav a:hover {
+            text-decoration: underline;
+        }
+
+        /* ================================
+           MAIN
+        ================================= */
+
+        .container {
+            max-width: 1150px;
+            margin: 30px auto;
+            padding: 0 20px;
+
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 25px;
+        }
+
+        /* ================================
+           FORM PANEL
+        ================================= */
+
+        .form-panel {
+            background: white;
+            padding: 28px;
+            border-radius: 14px;
+
+            box-shadow:
+                0 4px 15px rgba(0,0,0,0.08);
+        }
+
+        .form-panel h2 {
+            color: #0a66c2;
+            margin-bottom: 8px;
+        }
+
+        .form-panel > p {
+            color: #64748b;
+            margin-bottom: 25px;
+            line-height: 1.5;
+        }
+
+        .form-group {
+            margin-bottom: 18px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 7px;
+            font-weight: bold;
+        }
+
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 12px;
+
+            border: 1px solid #d1d5db;
+            border-radius: 8px;
+
+            font-size: 14px;
+            background: white;
+        }
+
+        .form-group textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: #0a66c2;
+
+            box-shadow:
+                0 0 0 2px rgba(
+                    10,
+                    102,
+                    194,
+                    0.10
+                );
+        }
+
+        .required {
+            color: #dc2626;
+        }
+
+        .save-btn {
+            width: 100%;
+            padding: 14px;
+
+            background: #0a66c2;
+            color: white;
+
+            border: none;
+            border-radius: 9px;
+
+            font-size: 16px;
+            font-weight: bold;
+
+            cursor: pointer;
+        }
+
+        .save-btn:hover {
+            background: #084d96;
+        }
+
+        .save-btn:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+        }
+
+        /* ================================
+           MESSAGE
+        ================================= */
+
+        #message {
+            margin-bottom: 15px;
+            text-align: center;
+            font-weight: bold;
+            min-height: 20px;
+        }
+
+        /* ================================
+           PREVIEW
+        ================================= */
+
+        .preview-panel {
+            background: white;
+            border-radius: 14px;
+
+            box-shadow:
+                0 4px 15px rgba(0,0,0,0.08);
+
+            overflow: hidden;
+        }
+
+        .preview-header {
+            background:
+                linear-gradient(
+                    135deg,
+                    #0a66c2,
+                    #004182
+                );
+
+            color: white;
+
+            padding: 30px;
+        }
+
+        .preview-header span {
+            display: inline-block;
+
+            background: rgba(
+                255,
+                255,
+                255,
+                0.18
+            );
+
+            padding: 6px 12px;
+            border-radius: 20px;
+
+            font-size: 12px;
+            font-weight: bold;
+
+            margin-bottom: 12px;
+        }
+
+        .preview-header h2 {
+            font-size: 27px;
+            line-height: 1.3;
+        }
+
+        .preview-body {
+            padding: 28px;
+        }
+
+        .preview-description {
+            color: #64748b;
+            line-height: 1.7;
+            margin-bottom: 20px;
+        }
+
+        .preview-section {
+            margin-bottom: 20px;
+        }
+
+        .preview-section h3 {
+            color: #0a66c2;
+            margin-bottom: 8px;
+            font-size: 16px;
+        }
+
+        .preview-section p {
+            line-height: 1.6;
+        }
+
+        .preview-details {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 12px;
+        }
+
+        .preview-detail {
+            background: #f8fafc;
+            padding: 13px;
+            border-radius: 9px;
+        }
+
+        .preview-detail span {
+            display: block;
+            font-size: 12px;
+            color: #64748b;
+            margin-bottom: 4px;
+        }
+
+        .preview-detail strong {
+            font-size: 14px;
+        }
+
+        .preview-link {
+            display: block;
+
+            margin-top: 22px;
+
+            padding: 12px;
+
+            text-align: center;
+
+            background: #0a66c2;
+
+            color: white;
+
+            text-decoration: none;
+
+            border-radius: 8px;
+
+            font-weight: bold;
+        }
+
+        .preview-link:hover {
+            background: #084d96;
+        }
+
+        /* ================================
+           FOOTER
+        ================================= */
+
+        footer {
+            margin-top: 30px;
+
+            background: #222;
+            color: #aaa;
+
+            text-align: center;
+
+            padding: 20px;
+
+            font-size: 13px;
+        }
+
+        /* ================================
+           RESPONSIVE
+        ================================= */
+
+        @media (max-width: 850px) {
+
+            .container {
+                grid-template-columns: 1fr;
+            }
+
+        }
+
+        @media (max-width: 600px) {
+
+            header {
+                flex-direction: column;
+                gap: 12px;
+            }
+
+            .preview-details {
+                grid-template-columns: 1fr;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+
+<header>
+
+    <h1>
+        Campus2Career
+    </h1>
+
+    <nav>
+
+        <a href="main.html">
+            Home
+        </a>
+
+        <a href="courses.html">
+            Courses
+        </a>
+
+    </nav>
+
+</header>
+
+
+<div class="container">
+
+
+    <!-- ==================================
+         COURSE FORM
+    =================================== -->
+
+    <div class="form-panel">
+
+        <h2>
+            Create Course Profile
+        </h2>
+
+        <p>
+            Enter the course details below.
+            The information will be stored in
+            the Campus2Career database.
+        </p>
+
+
+        <div id="message"></div>
+
+
+        <form id="courseForm">
+
+
+            <div class="form-group">
+
+                <label for="courseName">
+                    Course Name
+                    <span class="required">*</span>
+                </label>
+
+                <input
+                    type="text"
+                    id="courseName"
+                    placeholder="e.g. B.Tech Computer Science"
+                    required
+                >
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label for="field">
+                    Field
+                    <span class="required">*</span>
+                </label>
+
+                <input
+                    type="text"
+                    id="field"
+                    list="fieldOptions"
+                    placeholder="e.g. Computer Science"
+                    required
+                >
+
+                <datalist id="fieldOptions">
+
+                    <option value="Computer Science">
+                    <option value="Engineering">
+                    <option value="Data Science">
+                    <option value="Artificial Intelligence">
+                    <option value="Cyber Security">
+                    <option value="Management">
+                    <option value="Business">
+                    <option value="Finance">
+                    <option value="Marketing">
+                    <option value="Design">
+                    <option value="Medicine">
+                    <option value="Law">
+                    <option value="Science">
+
+                </datalist>
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label for="institution">
+                    Institution / Provider
+                </label>
+
+                <input
+                    type="text"
+                    id="institution"
+                    placeholder="Institution or course provider"
+                >
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label for="description">
+                    Course Description
+                </label>
+
+                <textarea
+                    id="description"
+                    placeholder="Describe what students will learn..."
+                ></textarea>
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label for="level">
+                    Course Level
+                </label>
+
+                <select id="level">
+
+                    <option value="">
+                        Select Level
+                    </option>
+
+                    <option value="Beginner">
+                        Beginner
+                    </option>
+
+                    <option value="Intermediate">
+                        Intermediate
+                    </option>
+
+                    <option value="Advanced">
+                        Advanced
+                    </option>
+
+                    <option value="Undergraduate">
+                        Undergraduate
+                    </option>
+
+                    <option value="Postgraduate">
+                        Postgraduate
+                    </option>
+
+                </select>
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label for="mode">
+                    Learning Mode
+                </label>
+
+                <select id="mode">
+
+                    <option value="">
+                        Select Mode
+                    </option>
+
+                    <option value="Online">
+                        Online
+                    </option>
+
+                    <option value="Offline">
+                        Offline
+                    </option>
+
+                    <option value="Hybrid">
+                        Hybrid
+                    </option>
+
+                </select>
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label for="duration">
+                    Duration
+                </label>
+
+                <input
+                    type="text"
+                    id="duration"
+                    placeholder="e.g. 4 Years, 6 Months"
+                >
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label for="courseUrl">
+                    Course URL
+                </label>
+
+                <input
+                    type="url"
+                    id="courseUrl"
+                    placeholder="https://example.com/course"
+                >
+
+            </div>
+
+
+            <button
+                type="submit"
+                id="saveCourseBtn"
+                class="save-btn"
+            >
+                Save Course
+            </button>
+
+
+        </form>
+
+    </div>
+
+
+    <!-- ==================================
+         LIVE PREVIEW
+    =================================== -->
+
+    <div class="preview-panel">
+
+
+        <div class="preview-header">
+
+            <span id="previewField">
+                Course Field
+            </span>
+
+            <h2 id="previewName">
+                Course Name
+            </h2>
+
+        </div>
+
+
+        <div class="preview-body">
+
+
+            <div class="preview-section">
+
+                <h3>
+                    Description
+                </h3>
+
+                <p
+                    id="previewDescription"
+                    class="preview-description"
+                >
+                    Course description will appear here.
+                </p>
+
+            </div>
+
+
+            <div class="preview-section">
+
+                <h3>
+                    Institution
+                </h3>
+
+                <p id="previewInstitution">
+                    Institution not specified
+                </p>
+
+            </div>
+
+
+            <div class="preview-details">
+
+
+                <div class="preview-detail">
+
+                    <span>
+                        Level
+                    </span>
+
+                    <strong id="previewLevel">
+                        Not specified
+                    </strong>
+
+                </div>
+
+
+                <div class="preview-detail">
+
+                    <span>
+                        Mode
+                    </span>
+
+                    <strong id="previewMode">
+                        Not specified
+                    </strong>
+
+                </div>
+
+
+                <div class="preview-detail">
+
+                    <span>
+                        Duration
+                    </span>
+
+                    <strong id="previewDuration">
+                        Not specified
+                    </strong>
+
+                </div>
+
+
+            </div>
+
+
+            <a
+                id="previewLink"
+                class="preview-link"
+                href="#"
+                target="_blank"
+                rel="noopener noreferrer"
+                style="display:none;"
+            >
+                View Course
+            </a>
+
+
+        </div>
+
+    </div>
+
+
+</div>
+
+
+<footer>
+
+    © 2026 Campus2Career.
+    All rights reserved.
+
+</footer>
+
+
+<script src="Course-profile.js"></script>
+
+</body>
+
+</html>
+

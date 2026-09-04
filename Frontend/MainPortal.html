@@ -1,0 +1,601 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Campus2Career</title>
+
+    <link
+        rel="stylesheet"
+        href="style.css"
+    >
+
+    <link
+        rel="preconnect"
+        href="https://fonts.googleapis.com"
+    >
+
+    <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin
+    >
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet"
+    >
+
+</head>
+
+<body>
+
+<header>
+
+    <div class="logo-section">
+
+        <img
+            src="logo.png"
+            alt="Campus2Career"
+            class="logo-img"
+        >
+
+    </div>
+
+    <div class="search-box">
+
+        <span class="search-icon">
+            🔍
+        </span>
+
+        <input
+            type="text"
+            id="globalSearch"
+            placeholder="Search people, companies, courses..."
+            autocomplete="off"
+        >
+
+    </div>
+
+    <nav>
+
+        <a href="MainPortal.html">
+            🏠 Home
+        </a>
+
+        <a href="#">
+            👥 Network
+        </a>
+
+        <a href="Companyprofile.html">
+            💼 Jobs
+        </a>
+
+    </nav>
+
+    <div class="profile">
+
+        <img
+            src="Frog.jpg"
+            alt="Profile"
+        >
+
+    </div>
+
+</header>
+
+<div class="container">
+
+<aside class="left-sidebar">
+
+    <div class="profile-card">
+
+        <div class="cover"></div>
+
+        <img
+            src="Frog.jpg"
+            class="profile-pic"
+            alt="Profile Picture"
+        >
+
+        <h2 id="profileName">
+            Loading...
+        </h2>
+
+        <p class="designation">
+            Loading profile...
+        </p>
+
+        <p class="location"></p>
+
+        <hr>
+
+        <div class="stats">
+
+            <p>
+
+                Connections
+
+                <span id="connectionsCount">
+                    0
+                </span>
+
+            </p>
+
+            <p>
+
+                Posts
+
+                <span id="postCount">
+                    0
+                </span>
+
+            </p>
+
+        </div>
+
+        <div class="profile-actions">
+
+            <a
+                href="profile.html"
+                id="editProfileLink"
+            >
+
+                ✏ Edit Profile
+
+            </a>
+
+        </div>
+
+    </div>
+
+    <div
+        class="recommend-card"
+        id="peopleRecommendationCard"
+    >
+
+        <h3>
+            People You May Know
+        </h3>
+
+        <div
+            id="peopleContainer"
+            class="people-container"
+        >
+
+            <div
+                class="people-loading"
+                id="peopleLoading"
+            >
+
+                Loading people...
+
+            </div>
+
+        </div>
+
+    </div>
+
+</aside>
+
+<main>
+
+    <div class="create-post">
+
+        <div class="post-user">
+
+            <img
+                src="Frog.jpg"
+                alt="User"
+            >
+
+            <span>
+
+                Share your achievements,
+                projects and ideas...
+
+            </span>
+
+        </div>
+
+        <textarea
+            id="postInput"
+            placeholder="What's on your mind?"
+            maxlength="500"
+            rows="3"
+        ></textarea>
+
+        <div class="post-tools">
+
+            <label class="upload-btn">
+
+                📷 Photo
+
+                <input
+                    type="file"
+                    id="imageUpload"
+                    accept="image/*"
+                    hidden
+                >
+
+            </label>
+
+            <label class="upload-btn">
+
+                🎥 Video
+
+                <input
+                    type="file"
+                    id="videoUpload"
+                    accept="video/*"
+                    hidden
+                >
+
+            </label>
+
+            <span id="charCount">
+                0/500
+            </span>
+
+            <button
+                id="postBtn"
+                type="button"
+            >
+                Post
+            </button>
+
+        </div>
+
+    </div>
+
+    <section
+        class="posts-scroll-area"
+        id="postsScrollArea"
+    >
+            <div class="post">
+
+            <div class="post-header">
+
+                <img
+                    src="https://via.placeholder.com/50"
+                    alt="User"
+                >
+
+                <div>
+
+                    <h3>
+                        Campus2Career
+                    </h3>
+
+                    <p>
+                        Welcome to Campus2Career
+                    </p>
+
+                </div>
+
+            </div>
+
+            <p class="post-text">
+
+                Welcome to Campus2Career.
+                Build your network,
+                showcase your skills,
+                discover courses,
+                explore companies,
+                and find career opportunities.
+
+            </p>
+
+            <div class="post-stats">
+
+                <span class="like-count">
+                    👍 0 Likes
+                </span>
+
+                <span class="comment-count">
+                    💬 0 Comments
+                </span>
+
+                <span class="share-count">
+                    🔄 0 Shares
+                </span>
+
+            </div>
+
+            <div class="actions">
+
+                <button
+                    type="button"
+                    class="like-btn"
+                >
+                    👍 Like
+                </button>
+
+                <button
+                    type="button"
+                    class="comment-btn"
+                >
+                    💬 Comment
+                </button>
+
+                <button
+                    type="button"
+                    class="share-btn"
+                >
+                    🔄 Share
+                </button>
+
+                <button
+                    type="button"
+                    class="delete-btn"
+                    style="display:none;"
+                >
+                    🗑 Delete
+                </button>
+
+            </div>
+
+            <div class="comments"></div>
+
+        </div>
+
+    </section>
+
+</main>
+
+<aside class="right-sidebar">
+
+    <div class="company-bar">
+
+        <div class="company-header">
+
+            <h2>
+                🏢 Company Portal
+            </h2>
+
+        </div>
+
+        <div
+            class="company-list"
+            id="companyContainer"
+        >
+
+            <div class="loading-message">
+                Loading companies...
+            </div>
+
+        </div>
+
+        <div class="company-link">
+
+            <a href="CompanyProfile.html">
+                View All Companies →
+            </a>
+
+        </div>
+
+    </div>
+
+    <div
+        class="courses-profile"
+        id="coursesSection"
+    >
+
+        <h2 class="courses-title">
+            📚 Courses
+        </h2>
+
+        <div
+            class="course-list"
+            id="courseContainer"
+        >
+
+            <div class="loading-message">
+                Loading courses...
+            </div>
+
+        </div>
+
+        <div
+            class="company-link"
+            style="margin-top:15px;"
+        >
+
+            <a href="courses.html">
+                View All Courses →
+            </a>
+
+        </div>
+
+    </div>
+
+    <div class="courses-profile">
+
+        <h2>
+            🎯 Profile Completion
+        </h2>
+
+        <div
+            class="progress-bar"
+            role="progressbar"
+            aria-valuemin="0"
+            aria-valuemax="100"
+            aria-valuenow="0"
+        >
+
+            <div
+                id="profileProgress"
+                class="progress"
+                style="width:0%;"
+            ></div>
+
+        </div>
+
+        <p
+            id="profileCompletion"
+            style="margin-top:10px;"
+        >
+            0% Completed
+        </p>
+
+    </div>
+
+    <div class="advertisement">
+
+        <h3>
+            Advertisement
+        </h3>
+
+        <img
+            src="https://picsum.photos/300/250"
+            alt="Advertisement"
+        >
+
+    </div>
+
+</aside>
+
+</div>
+
+<div
+    class="ai-chatbot-container"
+    id="aiChatbot"
+>
+
+    <div
+        class="ai-chat-window"
+        id="aiChatWindow"
+    >
+
+        <div class="ai-chat-header">
+
+            <div class="ai-chat-header-left">
+
+                <div class="ai-chat-avatar">
+                    🤖
+                </div>
+
+                <div>
+
+                    <h3>
+                        Campus2Career AI
+                    </h3>
+
+                    <span>
+                        Online
+                    </span>
+
+                </div>
+
+            </div>
+
+            <button
+                class="ai-chat-close"
+                id="aiChatClose"
+                type="button"
+                aria-label="Close AI assistant"
+            >
+                ×
+            </button>
+
+        </div>
+
+        <div
+            class="ai-chat-body"
+            id="aiChatBody"
+        >
+
+            <div class="ai-message">
+
+                Hi! 👋 Welcome to
+                <strong>Campus2Career</strong>.
+
+                I'm your AI assistant.
+                I can help you explore
+                courses, companies,
+                careers and opportunities.
+
+                How can I help you today?
+
+            </div>
+
+        </div>
+
+        <div class="ai-chat-input-area">
+
+            <input
+                type="text"
+                id="aiChatInput"
+                class="ai-chat-input"
+                placeholder="Ask me something..."
+                autocomplete="off"
+            >
+
+            <button
+                id="aiChatSend"
+                class="ai-chat-send"
+                type="button"
+                aria-label="Send message"
+            >
+                ➤
+            </button>
+
+        </div>
+
+    </div>
+
+    <button
+        id="aiChatButton"
+        class="ai-chatbot-button"
+        type="button"
+        aria-label="Open Campus2Career AI"
+    >
+        🤖
+    </button>
+
+</div>
+
+<footer>
+
+    <div class="footer-links">
+
+        <a href="site-info.html">
+            About
+        </a>
+
+        <a href="site-info.html">
+            Help Center
+        </a>
+
+        <a href="site-info.html">
+            Privacy
+        </a>
+
+        <a href="site-info.html">
+            Terms
+        </a>
+
+        <a href="site-info.html">
+            Contact
+        </a>
+
+    </div>
+
+    <p>
+        © 2026 Campus2Career.
+        All Rights Reserved.
+    </p>
+
+</footer>
+
+<script src="script.js"></script>
+
+</body>
+</html>

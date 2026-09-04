@@ -1,0 +1,465 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Campus2Career - Sign Up</title>
+
+
+    <!-- Signup JavaScript -->
+    <script src="signup1.js" defer></script>
+
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+        }
+
+
+        body {
+            margin: 0;
+            padding: 0;
+
+            font-family: Arial, Helvetica, sans-serif;
+
+            background-image: url("back.jpg");
+
+            background-size: cover;
+
+            background-position: center;
+
+            background-repeat: no-repeat;
+
+            min-height: 100vh;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+        }
+
+
+        /* =====================================
+           MAIN BOX
+        ====================================== */
+
+        .box {
+            width: 360px;
+
+            background: rgba(255, 255, 255, 0.95);
+
+            padding: 30px;
+
+            margin: 30px auto;
+
+            border-radius: 12px;
+
+            box-shadow:
+                0 0 20px rgba(0, 0, 0, 0.15);
+        }
+
+
+        /* =====================================
+           HEADING
+        ====================================== */
+
+        h1 {
+            margin-top: 0;
+
+            margin-bottom: 8px;
+
+            color: #222;
+
+            font-size: 27px;
+
+            text-align: center;
+        }
+
+
+        .description {
+            color: #666;
+
+            font-size: 14px;
+
+            line-height: 1.5;
+
+            margin-bottom: 18px;
+
+            text-align: center;
+        }
+
+
+        /* =====================================
+           INPUT FIELDS
+        ====================================== */
+
+        input {
+            width: 100%;
+
+            padding: 11px;
+
+            margin: 6px 0;
+
+            border: 1px solid #ccc;
+
+            border-radius: 5px;
+
+            font-size: 14px;
+
+            outline: none;
+
+            background: white;
+        }
+
+
+        input:focus {
+            border-color: #0a66c2;
+
+            box-shadow:
+                0 0 3px rgba(
+                    10,
+                    102,
+                    194,
+                    0.3
+                );
+        }
+
+
+        /* =====================================
+           MESSAGE
+        ====================================== */
+
+        #message {
+            margin-top: 10px;
+
+            min-height: 20px;
+
+            text-align: center;
+
+            font-weight: bold;
+
+            font-size: 14px;
+        }
+
+
+        /* =====================================
+           SIGN UP BUTTON
+        ====================================== */
+
+        #signupBtn {
+            width: 100%;
+
+            padding: 12px;
+
+            margin-top: 15px;
+
+            background: #0a66c2;
+
+            color: white;
+
+            border: none;
+
+            border-radius: 20px;
+
+            font-size: 15px;
+
+            font-weight: bold;
+
+            cursor: pointer;
+
+            transition: 0.2s;
+        }
+
+
+        #signupBtn:hover {
+            background: #084f96;
+        }
+
+
+        #signupBtn:disabled {
+            background: #7ca8cf;
+
+            cursor: not-allowed;
+        }
+
+
+        /* =====================================
+           LINKS
+        ====================================== */
+
+        a {
+            color: #0a66c2;
+
+            text-decoration: none;
+
+            font-weight: bold;
+        }
+
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+
+        /* =====================================
+           LOGIN TEXT
+        ====================================== */
+
+        .login-text {
+            text-align: center;
+
+            font-size: 13px;
+
+            margin-top: 18px;
+        }
+
+
+        /* =====================================
+           COMPANY / INSTITUTION PORTAL
+        ====================================== */
+
+        .portal {
+            margin-top: 25px;
+
+            padding-top: 20px;
+
+            border-top: 1px solid #ddd;
+        }
+
+
+        .portal p {
+            color: #555;
+
+            font-size: 13px;
+
+            line-height: 1.5;
+
+            margin-bottom: 7px;
+        }
+
+
+        .portal strong {
+            color: #222;
+        }
+
+
+        .portal a {
+            font-size: 13px;
+        }
+
+
+        .institution-text {
+            margin-top: 22px !important;
+        }
+
+
+        /* =====================================
+           MOBILE
+        ====================================== */
+
+        @media (max-width: 450px) {
+
+            body {
+                padding: 15px;
+            }
+
+
+            .box {
+                width: 100%;
+
+                padding: 25px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<div class="box">
+
+
+    <!-- =====================================
+         LOGO
+    ====================================== -->
+
+    <img
+        src="logo.png"
+        alt="Campus2Career"
+        style="
+            width: 100%;
+            max-width: 300px;
+            display: block;
+            margin: 0 auto 20px;
+        "
+    >
+
+
+    <h1>
+        Create account
+    </h1>
+
+
+    <p class="description">
+        Join NSEC and build your professional profile
+    </p>
+
+
+    <!-- =====================================
+         SIGNUP FORM
+    ====================================== -->
+
+    <form
+        id="signupForm"
+        autocomplete="on"
+    >
+
+
+        <!-- Full Name -->
+
+        <input
+            type="text"
+            id="fullName"
+            name="fullname"
+            placeholder="Full Name"
+            autocomplete="name"
+            required
+        >
+
+
+        <!-- Email -->
+
+        <input
+            type="email"
+            id="email"
+            name="email"
+            placeholder="Email"
+            autocomplete="email"
+            required
+        >
+
+
+        <!-- Password -->
+
+        <input
+            type="password"
+            id="password"
+            name="password"
+            placeholder="Password"
+            autocomplete="new-password"
+            required
+        >
+
+
+        <!-- Confirm Password -->
+
+        <input
+            type="password"
+            id="confirmPassword"
+            name="confirmPassword"
+            placeholder="Confirm Password"
+            autocomplete="new-password"
+            required
+        >
+
+
+        <!-- Message -->
+
+        <p id="message"></p>
+
+
+        <!-- Sign Up -->
+
+        <button
+            type="submit"
+            id="signupBtn"
+        >
+            Sign Up
+        </button>
+
+
+    </form>
+
+
+    <!-- =====================================
+         LOGIN LINK
+    ====================================== -->
+
+    <p class="login-text">
+
+        Already have an account?
+
+        <a href="login.html">
+            Sign in
+        </a>
+
+    </p>
+
+
+    <!-- =====================================
+         COMPANY PORTAL
+    ====================================== -->
+
+    <div class="portal">
+
+        <p>
+
+            <strong>
+                Are you a Company?
+            </strong>
+
+            <br>
+
+            Register your company and post jobs,
+            internships and opportunities.
+
+        </p>
+
+
+        <a href="co-signup.html">
+            Company Registration →
+        </a>
+
+
+        <p class="institution-text">
+
+            <strong>
+                Are you an Educational Institution?
+            </strong>
+
+            <br>
+
+            Provide courses, learning resources
+            and educational content.
+
+        </p>
+
+
+        <a href="InstitutionRegistration.html">
+            Institution Registration →
+        </a>
+
+    </div>
+
+
+</div>
+
+
+</body>
+
+</html>
+

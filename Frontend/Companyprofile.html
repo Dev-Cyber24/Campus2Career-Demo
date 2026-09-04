@@ -1,0 +1,547 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Company Portal</title>
+
+    <link
+        rel="stylesheet"
+        href="Comprof.css"
+    >
+
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    >
+
+</head>
+
+
+<body>
+
+    <!-- =========================================
+         MAIN CONTAINER
+    ========================================== -->
+
+    <div class="container">
+
+
+        <!-- =====================================
+             LEFT SIDEBAR
+        ====================================== -->
+
+        <aside class="sidebar">
+
+            <h1>
+                Companies
+            </h1>
+
+
+            <!-- Search -->
+
+            <div class="search-box">
+
+                <i class="fas fa-search"></i>
+
+                <input
+                    type="text"
+                    id="searchCompany"
+                    placeholder="Search Companies..."
+                    autocomplete="off"
+                >
+
+            </div>
+
+
+            <!-- Company List -->
+
+            <div id="companyContainer">
+
+                <div class="loading-message">
+                    Loading companies...
+                </div>
+
+            </div>
+
+        </aside>
+
+
+        <!-- =====================================
+             RIGHT MAIN CONTENT
+        ====================================== -->
+
+        <main
+            class="main-content"
+            id="companyMainContent"
+        >
+
+
+            <!-- Company Banner -->
+
+            <div
+                class="company-banner"
+                id="companyBanner"
+            ></div>
+
+
+            <!-- =================================
+                 COMPANY HEADER
+            ================================== -->
+
+            <section class="profile-header">
+
+
+                <!-- Main Logo -->
+
+                <div class="main-company-logo-container">
+
+                    <img
+                        id="companyLogo"
+                        class="company-logo"
+                        src=""
+                        alt="Company Logo"
+                    >
+
+                </div>
+
+
+                <!-- Company Name / Industry -->
+
+                <div class="company-header-text">
+
+                    <h1 id="companyName">
+                        Select a Company
+                    </h1>
+
+                    <p id="companyIndustry">
+                        Industry
+                    </p>
+
+                </div>
+
+            </section>
+
+
+            <!-- =================================
+                 COMPANY DETAILS
+            ================================== -->
+
+            <section class="profile-card">
+
+
+                <h2>
+                    About Company
+                </h2>
+
+
+                <p id="companyAbout">
+                    Select a company from the left panel.
+                </p>
+
+
+                <!-- Company Information -->
+
+                <div class="info-grid">
+
+
+                    <!-- Industry -->
+
+                    <div>
+
+                        <strong>
+                            Industry
+                        </strong>
+
+                        <p id="industry">
+                            -
+                        </p>
+
+                    </div>
+
+
+                    <!-- Location -->
+
+                    <div>
+
+                        <strong>
+                            Location
+                        </strong>
+
+                        <p id="location">
+                            -
+                        </p>
+
+                    </div>
+
+
+                </div>
+
+
+                <!-- =================================
+                     ACTION BUTTONS
+                ================================== -->
+
+                <div class="action-buttons">
+
+
+                    <!-- Website -->
+
+                    <a
+                        id="websiteLink"
+                        href="#"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="visit-btn"
+                    >
+                        Visit Website
+                    </a>
+
+
+                    <!-- Follow -->
+
+                    <button
+                        type="button"
+                        id="followBtn"
+                        class="follow-btn"
+                    >
+                        Follow Company
+                    </button>
+
+
+                    <!-- =================================
+                         APPLY
+                    ================================== -->
+
+                    <button
+                        type="button"
+                        id="applyBtn"
+                        class="apply-btn"
+                    >
+                        <i class="fas fa-paper-plane"></i>
+                        Apply Now
+                    </button>
+
+                </div>
+
+
+                <!-- =================================
+                     APPLICATION STATUS
+                ================================== -->
+
+                <div
+                    id="applicationMessage"
+                    style="
+                        display:none;
+                        margin-top:15px;
+                        padding:12px 15px;
+                        border-radius:10px;
+                        font-size:14px;
+                    "
+                ></div>
+
+            </section>
+
+
+        </main>
+
+    </div>
+
+
+    <!-- =========================================
+         COMPANY PORTAL JAVASCRIPT
+    ========================================== -->
+
+    <script src="CO.js"></script>
+
+
+    <!-- =========================================
+         APPLY BUTTON
+    ========================================== -->
+
+    <script>
+
+        "use strict";
+
+
+        /*
+         * The logged-in candidate's ID is stored
+         * during login/signup.
+         */
+        const loggedInUserId =
+            Number(
+                localStorage.getItem(
+                    "userId"
+                )
+            );
+
+
+        const applyButton =
+            document.getElementById(
+                "applyBtn"
+            );
+
+
+        const applicationMessage =
+            document.getElementById(
+                "applicationMessage"
+            );
+
+
+        /*
+         * Display application messages.
+         */
+        function showApplicationMessage(
+            message,
+            success = true
+        ) {
+
+            if (!applicationMessage) {
+                return;
+            }
+
+
+            applicationMessage.textContent =
+                message;
+
+
+            applicationMessage.style.display =
+                "block";
+
+
+            applicationMessage.style.background =
+                success
+                    ? "#dcfce7"
+                    : "#fee2e2";
+
+
+            applicationMessage.style.color =
+                success
+                    ? "#166534"
+                    : "#991b1b";
+
+
+            applicationMessage.style.border =
+                success
+                    ? "1px solid #86efac"
+                    : "1px solid #fca5a5";
+        }
+
+
+        /*
+         * Apply to the currently selected job.
+         *
+         * CO.js should set:
+         *
+         * window.selectedJobId
+         *
+         * when the recruiter/company page
+         * selects a job.
+         */
+        applyButton?.addEventListener(
+            "click",
+            async function () {
+
+                /*
+                 * Validate login.
+                 */
+                if (
+                    !Number.isInteger(
+                        loggedInUserId
+                    ) ||
+                    loggedInUserId <= 0
+                ) {
+
+                    showApplicationMessage(
+                        "Please login before applying.",
+                        false
+                    );
+
+                    return;
+                }
+
+
+                /*
+                 * Get selected job/company.
+                 */
+                const jobId =
+                    Number(
+                        window.selectedJobId
+                    );
+
+
+                const companyId =
+                    Number(
+                        window.selectedCompanyId
+                    );
+
+
+                /*
+                 * A job is required because
+                 * applications are stored against
+                 * jobs in the applications table.
+                 */
+                if (
+                    !Number.isInteger(
+                        jobId
+                    ) ||
+                    jobId <= 0
+                ) {
+
+                    showApplicationMessage(
+                        "Please select a job before applying.",
+                        false
+                    );
+
+                    return;
+                }
+
+
+                /*
+                 * Prevent accidental
+                 * double clicking.
+                 */
+                applyButton.disabled =
+                    true;
+
+
+                applyButton.innerHTML =
+                    `
+                        <i class="fas fa-spinner fa-spin"></i>
+                        Applying...
+                    `;
+
+
+                try {
+
+                    const token =
+                        localStorage.getItem(
+                            "authToken"
+                        );
+
+
+                    if (!token) {
+
+                        throw new Error(
+                            "Your login session has expired."
+                        );
+                    }
+
+
+                    /*
+                     * Send the logged-in user's
+                     * application to the backend.
+                     *
+                     * The backend should obtain
+                     * the real user ID from the JWT.
+                     */
+                    const response =
+                        await fetch(
+                            "http://localhost:5000/api/applications",
+                            {
+                                method: "POST",
+
+                                headers: {
+                                    "Content-Type":
+                                        "application/json",
+
+                                    "Authorization":
+                                        `Bearer ${token}`
+                                },
+
+                                body:
+                                    JSON.stringify({
+                                        job_id:
+                                            jobId,
+
+                                        company_id:
+                                            Number.isInteger(
+                                                companyId
+                                            ) &&
+                                            companyId > 0
+                                                ? companyId
+                                                : null
+                                    })
+                            }
+                        );
+
+
+                    const data =
+                        await response.json();
+
+
+                    if (
+                        !response.ok
+                    ) {
+
+                        throw new Error(
+                            data.message ||
+                            data.error ||
+                            "Application failed."
+                        );
+                    }
+
+
+                    showApplicationMessage(
+                        data.message ||
+                        "Application submitted successfully.",
+                        true
+                    );
+
+
+                    applyButton.innerHTML =
+                        `
+                            <i class="fas fa-check"></i>
+                            Applied
+                        `;
+
+
+                    applyButton.classList.add(
+                        "applied"
+                    );
+
+
+                } catch (error) {
+
+                    console.error(
+                        "Application error:",
+                        error
+                    );
+
+
+                    showApplicationMessage(
+                        error.message ||
+                        "Unable to submit application.",
+                        false
+                    );
+
+
+                    applyButton.disabled =
+                        false;
+
+
+                    applyButton.innerHTML =
+                        `
+                            <i class="fas fa-paper-plane"></i>
+                            Apply Now
+                        `;
+                }
+
+            }
+        );
+
+    </script>
+
+
+</body>
+
+</html>
+

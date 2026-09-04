@@ -1,0 +1,2937 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+>
+
+<title>Professional Profile</title>
+
+
+<style>
+
+    /* =========================================================
+       DESIGN SYSTEM
+    ========================================================= */
+
+    :root {
+
+        --primary: #0a66c2;
+        --primary-dark: #004182;
+        --primary-light: #e8f3ff;
+
+        --blue-soft: #f1f7fd;
+
+        --surface: #ffffff;
+        --surface-soft: #f8fafc;
+
+        --background: #eef2f6;
+
+        --text: #172033;
+        --text-secondary: #425066;
+        --muted: #718096;
+
+        --border: #e4e9f0;
+        --border-hover: #c7d1dd;
+
+        --success: #168a4a;
+        --success-soft: #ecfdf5;
+
+        --purple: #6941c6;
+        --purple-soft: #f5f3ff;
+
+        --orange: #d97706;
+        --orange-soft: #fff7ed;
+
+        --shadow-xs:
+            0 1px 3px rgba(15, 23, 42, 0.05);
+
+        --shadow-sm:
+            0 4px 12px rgba(15, 23, 42, 0.06);
+
+        --shadow:
+            0 10px 30px rgba(15, 23, 42, 0.08);
+
+        --shadow-lg:
+            0 18px 50px rgba(15, 23, 42, 0.12);
+
+        --radius-sm: 10px;
+        --radius: 16px;
+        --radius-lg: 22px;
+
+        --transition: 0.22s ease;
+    }
+
+
+    /* =========================================================
+       RESET
+    ========================================================= */
+
+    *,
+    *::before,
+    *::after {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+
+    html {
+        scroll-behavior: smooth;
+    }
+
+
+    body {
+
+        min-height: 100vh;
+
+        padding:
+            28px
+            20px
+            70px;
+
+        font-family:
+            "Segoe UI",
+            Inter,
+            Arial,
+            sans-serif;
+
+        color:
+            var(--text);
+
+        background:
+            linear-gradient(
+                180deg,
+                #e7eef6 0,
+                #eef2f6 340px,
+                #eef2f6 100%
+            );
+    }
+
+
+    button,
+    input,
+    textarea {
+        font: inherit;
+    }
+
+
+    button {
+        -webkit-tap-highlight-color: transparent;
+    }
+
+
+    /* =========================================================
+       MAIN CONTAINER
+    ========================================================= */
+
+    .profile-container {
+
+        width:
+            min(1120px, 100%);
+
+        margin:
+            0 auto;
+    }
+
+
+    /* =========================================================
+       BANNER
+    ========================================================= */
+
+    .banner-section {
+
+        position:
+            relative;
+
+        width:
+            100%;
+
+        height:
+            300px;
+
+        overflow:
+            hidden;
+
+        border-radius:
+            var(--radius-lg)
+            var(--radius-lg)
+            0
+            0;
+
+        background:
+            linear-gradient(
+                135deg,
+                #0757a0,
+                #0a66c2 45%,
+                #3689d3
+            );
+
+        box-shadow:
+            var(--shadow);
+    }
+
+
+    .banner-section::before {
+
+        content:
+            "";
+
+        position:
+            absolute;
+
+        inset:
+            0;
+
+        z-index:
+            1;
+
+        background:
+            radial-gradient(
+                circle at 15% 25%,
+                rgba(
+                    255,
+                    255,
+                    255,
+                    0.18
+                ),
+                transparent 28%
+            ),
+            radial-gradient(
+                circle at 85% 75%,
+                rgba(
+                    255,
+                    255,
+                    255,
+                    0.14
+                ),
+                transparent 30%
+            ),
+            linear-gradient(
+                135deg,
+                rgba(
+                    255,
+                    255,
+                    255,
+                    0.03
+                ),
+                rgba(
+                    0,
+                    0,
+                    0,
+                    0.12
+                )
+            );
+    }
+
+
+    .banner-section img {
+
+        position:
+            absolute;
+
+        inset:
+            0;
+
+        z-index:
+            2;
+
+        width:
+            100%;
+
+        height:
+            100%;
+
+        object-fit:
+            cover;
+
+        display:
+            none;
+    }
+
+
+    /* =========================================================
+       PROFILE CARD
+    ========================================================= */
+
+    .profile-card {
+
+        position:
+            relative;
+
+        background:
+            var(--surface);
+
+        border:
+            1px solid
+            var(--border);
+
+        border-top:
+            none;
+
+        border-radius:
+            0 0
+            var(--radius-lg)
+            var(--radius-lg);
+
+        box-shadow:
+            var(--shadow);
+
+        overflow:
+            visible;
+    }
+
+
+    /* =========================================================
+       PROFILE HEADER
+    ========================================================= */
+
+    .profile-header {
+
+        position:
+            relative;
+
+        min-height:
+            430px;
+
+        padding:
+            115px
+            42px
+            35px;
+
+        display:
+            flex;
+
+        flex-direction:
+            column;
+
+        align-items:
+            center;
+
+        text-align:
+            center;
+    }
+
+
+    /* =========================================================
+       CENTERED PROFILE PHOTO / LOGO
+    ========================================================= */
+
+    .profile-photo-container {
+
+        position:
+            absolute;
+
+        top:
+            -88px;
+
+        left:
+            50%;
+
+        transform:
+            translateX(
+                -50%
+            );
+
+        width:
+            176px;
+
+        height:
+            176px;
+
+        z-index:
+            20;
+
+        display:
+            flex;
+
+        align-items:
+            center;
+
+        justify-content:
+            center;
+
+        overflow:
+            hidden;
+
+        border:
+            7px solid
+            var(--surface);
+
+        border-radius:
+            50%;
+
+        background:
+            linear-gradient(
+                135deg,
+                #edf1f5,
+                #f8fafc
+            );
+
+        box-shadow:
+            0 10px 32px
+            rgba(
+                15,
+                23,
+                42,
+                0.17
+            );
+    }
+
+
+    .profile-photo-container img {
+
+        display:
+            none;
+
+        width:
+            100%;
+
+        height:
+            100%;
+
+        object-fit:
+            cover;
+    }
+
+
+    .placeholder {
+
+        display:
+            flex;
+
+        align-items:
+            center;
+
+        justify-content:
+            center;
+
+        width:
+            100%;
+
+        height:
+            100%;
+
+        padding:
+            20px;
+
+        text-align:
+            center;
+
+        color:
+            var(--muted);
+
+        font-size:
+            14px;
+
+        font-weight:
+            650;
+    }
+
+
+    /* =========================================================
+       PROFILE INFORMATION
+    ========================================================= */
+
+    .profile-main-info {
+
+        width:
+            min(
+                760px,
+                100%
+            );
+
+        margin:
+            0 auto;
+
+        padding:
+            0 10px;
+    }
+
+
+    .profile-main-info h1 {
+
+        color:
+            var(--text);
+
+        font-size:
+            clamp(
+                1.85rem,
+                3.5vw,
+                2.55rem
+            );
+
+        line-height:
+            1.18;
+
+        font-weight:
+            760;
+
+        letter-spacing:
+            -0.65px;
+
+        overflow-wrap:
+            anywhere;
+    }
+
+
+    .headline {
+
+        margin-top:
+            9px;
+
+        color:
+            var(--text-secondary);
+
+        font-size:
+            1.05rem;
+
+        line-height:
+            1.55;
+
+        font-weight:
+            500;
+
+        overflow-wrap:
+            anywhere;
+    }
+
+
+    .tagline {
+
+        margin-top:
+            6px;
+
+        color:
+            var(--muted);
+
+        font-size:
+            0.95rem;
+
+        line-height:
+            1.55;
+
+        overflow-wrap:
+            anywhere;
+    }
+
+
+    .location {
+
+        display:
+            flex;
+
+        align-items:
+            center;
+
+        justify-content:
+            center;
+
+        gap:
+            6px;
+
+        margin-top:
+            11px;
+
+        color:
+            var(--muted);
+
+        font-size:
+            0.9rem;
+    }
+
+
+    .location::before {
+        content:
+            "📍";
+    }
+
+
+    /* =========================================================
+       EDIT BUTTON
+    ========================================================= */
+
+    .edit-btn {
+
+        position:
+            absolute;
+
+        top:
+            27px;
+
+        right:
+            30px;
+
+        z-index:
+            60;
+
+        min-width:
+            138px;
+
+        padding:
+            11px
+            20px;
+
+        border:
+            1.5px solid
+            var(--primary);
+
+        border-radius:
+            999px;
+
+        background:
+            #ffffff;
+
+        color:
+            var(--primary);
+
+        font-size:
+            14px;
+
+        font-weight:
+            750;
+
+        cursor:
+            pointer;
+
+        box-shadow:
+            var(--shadow-xs);
+
+        transition:
+            var(--transition);
+    }
+
+
+    .edit-btn:hover {
+
+        background:
+            var(--primary-light);
+
+        transform:
+            translateY(
+                -1px
+            );
+
+        box-shadow:
+            0 6px 16px
+            rgba(
+                10,
+                102,
+                194,
+                0.15
+            );
+    }
+
+
+    .edit-btn:active {
+
+        transform:
+            translateY(0);
+    }
+
+
+    /* =========================================================
+       DATABASE CONTROLLED STATISTICS
+    ========================================================= */
+
+    .stats-bar {
+
+        width:
+            min(
+                650px,
+                100%
+            );
+
+        display:
+            grid;
+
+        grid-template-columns:
+            repeat(
+                3,
+                minmax(
+                    130px,
+                    1fr
+                )
+            );
+
+        gap:
+            12px;
+
+        margin:
+            24px auto 0;
+    }
+
+
+    .stat-box {
+
+        min-height:
+            64px;
+
+        display:
+            flex;
+
+        align-items:
+            center;
+
+        justify-content:
+            center;
+
+        gap:
+            4px;
+
+        padding:
+            11px
+            13px;
+
+        border:
+            1px solid
+            var(--border);
+
+        border-radius:
+            12px;
+
+        background:
+            linear-gradient(
+                180deg,
+                #ffffff,
+                #f8fafc
+            );
+
+        color:
+            var(--text-secondary);
+
+        font-size:
+            13px;
+
+        font-weight:
+            650;
+
+        text-align:
+            center;
+
+        transition:
+            var(--transition);
+    }
+
+
+    .stat-box:hover {
+
+        transform:
+            translateY(
+                -3px
+            );
+
+        border-color:
+            var(--border-hover);
+
+        box-shadow:
+            var(--shadow-sm);
+    }
+
+
+    #view-connections,
+    #view-rating,
+    #view-grade {
+
+        margin-left:
+            4px;
+
+        font-weight:
+            800;
+    }
+
+
+    #view-connections {
+        color:
+            var(--primary);
+    }
+
+
+    #view-rating {
+        color:
+            var(--success);
+    }
+
+
+    #view-grade {
+        color:
+            var(--purple);
+    }
+
+
+    /* =========================================================
+       GENERIC EDIT FIELDS
+       
+       Hidden completely in normal mode.
+       Profilecon.js can reveal these when editing.
+    ========================================================= */
+
+    .edit-input {
+
+        display:
+            none;
+
+        width:
+            100%;
+
+        min-height:
+            48px;
+
+        margin-top:
+            12px;
+
+        padding:
+            12px
+            14px;
+
+        border:
+            1px solid
+            var(--border-hover);
+
+        border-radius:
+            11px;
+
+        outline:
+            none;
+
+        background:
+            #ffffff;
+
+        color:
+            var(--text);
+
+        font-size:
+            14px;
+
+        line-height:
+            1.55;
+
+        box-shadow:
+            inset
+            0
+            1px
+            2px
+            rgba(
+                15,
+                23,
+                42,
+                0.03
+            );
+
+        transition:
+            var(--transition);
+    }
+
+
+    .edit-input:hover {
+
+        border-color:
+            #aebac8;
+    }
+
+
+    .edit-input:focus {
+
+        border-color:
+            var(--primary);
+
+        box-shadow:
+            0 0 0 4px
+            rgba(
+                10,
+                102,
+                194,
+                0.10
+            );
+    }
+
+
+    .edit-input::placeholder {
+
+        color:
+            #9aa5b3;
+    }
+
+
+    textarea.edit-input {
+
+        min-height:
+            145px;
+
+        resize:
+            vertical;
+
+        line-height:
+            1.65;
+    }
+
+
+    .profile-main-info
+    .edit-input {
+
+        position:
+            relative;
+
+        z-index:
+            5;
+
+        text-align:
+            left;
+    }
+
+
+    /* =========================================================
+       PROFILE MEDIA UPLOAD SECTION
+       
+       Completely absent from the normal visual layout.
+       It is shown explicitly by .show-profile-uploads.
+    ========================================================= */
+
+    .profile-upload-controls {
+
+        display:
+            none;
+
+        width:
+            min(
+                850px,
+                100%
+            );
+
+        margin:
+            32px auto 0;
+
+        padding:
+            24px;
+
+        border:
+            1px solid
+            #dce5ef;
+
+        border-radius:
+            15px;
+
+        background:
+            linear-gradient(
+                180deg,
+                #fbfdff,
+                #f5f9fd
+            );
+
+        flex-direction:
+            column;
+
+        gap:
+            16px;
+
+        text-align:
+            left;
+
+        position:
+            relative;
+
+        z-index:
+            5;
+
+        animation:
+            uploadAppear
+            0.22s ease;
+    }
+
+
+    /*
+       IMPORTANT:
+       This is the ONLY selector that makes the
+       Profile Image / Background section visible.
+    */
+
+    .profile-upload-controls.show-profile-uploads {
+
+        display:
+            flex;
+    }
+
+
+    /* =========================================================
+       UPLOAD TITLE
+    ========================================================= */
+
+    .upload-heading {
+
+        display:
+            flex;
+
+        align-items:
+            center;
+
+        gap:
+            9px;
+
+        color:
+            var(--text);
+
+        font-size:
+            15px;
+
+        font-weight:
+            750;
+    }
+
+
+    .upload-heading::before {
+
+        content:
+            "";
+
+        width:
+            4px;
+
+        height:
+            21px;
+
+        flex:
+            0 0 auto;
+
+        border-radius:
+            99px;
+
+        background:
+            var(--primary);
+    }
+
+
+    .upload-subtitle {
+
+        margin-top:
+            -7px;
+
+        color:
+            var(--muted);
+
+        font-size:
+            12px;
+
+        line-height:
+            1.5;
+    }
+
+
+    /* =========================================================
+       UPLOAD CARD
+    ========================================================= */
+
+    .image-upload-field {
+
+        width:
+            100%;
+
+        padding:
+            18px;
+
+        border:
+            1px solid
+            var(--border);
+
+        border-radius:
+            12px;
+
+        background:
+            #ffffff;
+
+        box-shadow:
+            var(--shadow-xs);
+
+        display:
+            flex;
+
+        flex-direction:
+            column;
+
+        gap:
+            9px;
+
+        overflow:
+            hidden;
+    }
+
+
+    .image-upload-field label {
+
+        color:
+            var(--text-secondary);
+
+        font-size:
+            13px;
+
+        line-height:
+            1.4;
+
+        font-weight:
+            750;
+    }
+
+
+    .image-upload-description {
+
+        color:
+            var(--muted);
+
+        font-size:
+            12px;
+
+        line-height:
+            1.5;
+    }
+
+
+    /* =========================================================
+       PROFILE/BANNER FILE INPUT
+    ========================================================= */
+
+    .image-upload-field
+    input[type="file"] {
+
+        display:
+            block;
+
+        width:
+            100%;
+
+        max-width:
+            100%;
+
+        min-width:
+            0;
+
+        min-height:
+            48px;
+
+        margin:
+            3px 0 0;
+
+        padding:
+            9px;
+
+        border:
+            1px solid
+            var(--border-hover);
+
+        border-radius:
+            9px;
+
+        background:
+            #ffffff;
+
+        color:
+            var(--text-secondary);
+
+        font-size:
+            13px;
+
+        line-height:
+            1.4;
+
+        cursor:
+            pointer;
+
+        overflow:
+            hidden;
+
+        transition:
+            var(--transition);
+    }
+
+
+    .image-upload-field
+    input[type="file"]:hover {
+
+        border-color:
+            var(--primary);
+
+        background:
+            var(--blue-soft);
+    }
+
+
+    .image-upload-field
+    input[type="file"]:focus {
+
+        outline:
+            3px solid
+            rgba(
+                10,
+                102,
+                194,
+                0.10
+            );
+
+        border-color:
+            var(--primary);
+    }
+
+
+    /* =========================================================
+       PROFILE SECTIONS
+    ========================================================= */
+
+    .profile-section {
+
+        position:
+            relative;
+
+        margin-top:
+            18px;
+
+        padding:
+            30px;
+
+        border:
+            1px solid
+            var(--border);
+
+        border-radius:
+            var(--radius);
+
+        background:
+            var(--surface);
+
+        box-shadow:
+            var(--shadow-sm);
+
+        transition:
+            var(--transition);
+    }
+
+
+    .profile-section:hover {
+
+        box-shadow:
+            var(--shadow);
+    }
+
+
+    .profile-section h2 {
+
+        display:
+            flex;
+
+        align-items:
+            center;
+
+        gap:
+            11px;
+
+        margin-bottom:
+            21px;
+
+        color:
+            var(--text);
+
+        font-size:
+            1.18rem;
+
+        line-height:
+            1.3;
+
+        font-weight:
+            760;
+    }
+
+
+    .profile-section h2::before {
+
+        content:
+            "";
+
+        width:
+            5px;
+
+        height:
+            23px;
+
+        flex:
+            0 0 auto;
+
+        border-radius:
+            99px;
+
+        background:
+            linear-gradient(
+                180deg,
+                var(--primary),
+                #4793d6
+            );
+    }
+
+
+    .info-display {
+
+        min-height:
+            25px;
+
+        color:
+            var(--text-secondary);
+
+        font-size:
+            15px;
+
+        line-height:
+            1.8;
+
+        white-space:
+            pre-line;
+
+        overflow-wrap:
+            anywhere;
+    }
+
+
+    /* =========================================================
+       CONTACT
+    ========================================================= */
+
+    .contact-field {
+
+        width:
+            100%;
+
+        margin-bottom:
+            18px;
+    }
+
+
+    .contact-field:last-child {
+
+        margin-bottom:
+            0;
+    }
+
+
+    /* =========================================================
+       PROFILE COMPLETION
+    ========================================================= */
+
+    .completion-box {
+
+        padding:
+            20px;
+
+        border:
+            1px solid
+            var(--border);
+
+        border-radius:
+            12px;
+
+        background:
+            linear-gradient(
+                135deg,
+                #f8fbff,
+                #eef6ff
+            );
+    }
+
+
+    .completion-label {
+
+        display:
+            flex;
+
+        align-items:
+            center;
+
+        justify-content:
+            space-between;
+
+        gap:
+            20px;
+
+        margin-bottom:
+            12px;
+
+        color:
+            var(--text-secondary);
+
+        font-size:
+            14px;
+
+        font-weight:
+            700;
+    }
+
+
+    #profileCompletion {
+
+        color:
+            var(--primary);
+
+        font-weight:
+            800;
+    }
+
+
+    .completion-track {
+
+        width:
+            100%;
+
+        height:
+            11px;
+
+        overflow:
+            hidden;
+
+        border-radius:
+            999px;
+
+        background:
+            #e2e8f0;
+    }
+
+
+    .completion-progress {
+
+        width:
+            0%;
+
+        height:
+            100%;
+
+        border-radius:
+            999px;
+
+        background:
+            linear-gradient(
+                90deg,
+                var(--primary),
+                #4b97d9
+            );
+
+        transition:
+            width
+            0.55s ease;
+    }
+
+
+    /* =========================================================
+       ACHIEVEMENT GALLERY
+    ========================================================= */
+
+    .gallery-grid {
+
+        display:
+            grid;
+
+        grid-template-columns:
+            repeat(
+                3,
+                minmax(
+                    0,
+                    1fr
+                )
+            );
+
+        gap:
+            17px;
+    }
+
+
+    .gallery-item {
+
+        min-height:
+            255px;
+
+        padding:
+            14px;
+
+        display:
+            flex;
+
+        flex-direction:
+            column;
+
+        border:
+            1px dashed
+            #cbd5e1;
+
+        border-radius:
+            12px;
+
+        background:
+            var(--surface-soft);
+
+        overflow:
+            hidden;
+
+        transition:
+            var(--transition);
+    }
+
+
+    .gallery-item:hover {
+
+        transform:
+            translateY(-3px);
+
+        border-color:
+            var(--primary);
+
+        box-shadow:
+            var(--shadow-sm);
+    }
+
+
+    .gallery-item img {
+
+        display:
+            block;
+
+        width:
+            100%;
+
+        height:
+            165px;
+
+        flex-shrink:
+            0;
+
+        object-fit:
+            cover;
+
+        border-radius:
+            9px;
+
+        background:
+            #e5e7eb;
+    }
+
+
+    .gallery-item img:not([src]),
+    .gallery-item img[src=""] {
+
+        display:
+            none;
+    }
+
+
+    /* =========================================================
+       ACHIEVEMENT UPLOAD
+       
+       IMPORTANT:
+       These are NOT normal edit inputs in behavior.
+    ========================================================= */
+
+    .gallery-item
+    .achievement-upload {
+
+        display:
+            none;
+
+        width:
+            100%;
+
+        margin-top:
+            20px;
+
+        padding:
+            10px;
+
+        flex-shrink:
+            0;
+
+        border:
+            1px solid
+            var(--border-hover);
+
+        border-radius:
+            9px;
+
+        background:
+            #ffffff;
+
+        color:
+            var(--text-secondary);
+
+        font-size:
+            12px;
+
+        cursor:
+            pointer;
+    }
+
+
+    .gallery-item.edit-visible
+    .achievement-upload {
+
+        display:
+            block;
+    }
+
+
+    /* =========================================================
+       SAVE PROFILE
+    ========================================================= */
+
+    .save-btn {
+
+        display:
+            none;
+
+        width:
+            100%;
+
+        min-height:
+            50px;
+
+        margin-top:
+            23px;
+
+        padding:
+            13px
+            20px;
+
+        border:
+            none;
+
+        border-radius:
+            11px;
+
+        background:
+            linear-gradient(
+                135deg,
+                #16a34a,
+                #15803d
+            );
+
+        color:
+            #ffffff;
+
+        font-size:
+            15px;
+
+        font-weight:
+            750;
+
+        cursor:
+            pointer;
+
+        box-shadow:
+            0 6px 16px
+            rgba(
+                22,
+                163,
+                74,
+                0.16
+            );
+
+        transition:
+            var(--transition);
+    }
+
+
+    .save-btn:hover {
+
+        transform:
+            translateY(
+                -2px
+            );
+
+        box-shadow:
+            0 10px 22px
+            rgba(
+                22,
+                163,
+                74,
+                0.22
+            );
+    }
+
+
+    /* =========================================================
+       EDITING STATE
+    ========================================================= */
+
+    body.editing .profile-card {
+
+        box-shadow:
+            var(--shadow-lg);
+    }
+
+
+    body.editing .profile-section {
+
+        border-color:
+            #d7e5f3;
+    }
+
+
+    body.editing .profile-header {
+
+        background:
+            linear-gradient(
+                180deg,
+                #ffffff,
+                #fbfdff
+            );
+    }
+
+
+    /* =========================================================
+       UPLOAD ANIMATION
+    ========================================================= */
+
+    @keyframes uploadAppear {
+
+        from {
+            opacity:
+                0;
+
+            transform:
+                translateY(
+                    -8px
+                );
+        }
+
+        to {
+            opacity:
+                1;
+
+            transform:
+                translateY(
+                    0
+                );
+        }
+
+    }
+
+
+    /* =========================================================
+       TABLET
+    ========================================================= */
+
+    @media (max-width: 900px) {
+
+        body {
+
+            padding:
+                20px
+                13px
+                50px;
+        }
+
+
+        .banner-section {
+
+            height:
+                245px;
+        }
+
+
+        .profile-header {
+
+            min-height:
+                500px;
+
+            padding:
+                100px
+                28px
+                30px;
+        }
+
+
+        .profile-photo-container {
+
+            width:
+                150px;
+
+            height:
+                150px;
+
+            top:
+                -75px;
+        }
+
+
+        .profile-main-info {
+
+            width:
+                100%;
+
+            padding:
+                0;
+        }
+
+
+        .profile-main-info h1 {
+
+            font-size:
+                1.95rem;
+        }
+
+
+        .stats-bar {
+
+            width:
+                min(
+                    700px,
+                    100%
+                );
+        }
+
+
+        .edit-btn {
+
+            top:
+                18px;
+
+            right:
+                18px;
+
+            min-width:
+                125px;
+
+            padding:
+                9px
+                16px;
+        }
+
+
+        .profile-upload-controls {
+
+            width:
+                100%;
+        }
+
+
+        .profile-section {
+
+            padding:
+                26px
+                23px;
+        }
+
+
+        .gallery-grid {
+
+            grid-template-columns:
+                repeat(
+                    2,
+                    minmax(
+                        0,
+                        1fr
+                    )
+                );
+        }
+
+    }
+
+
+    /* =========================================================
+       MOBILE
+    ========================================================= */
+
+    @media (max-width: 620px) {
+
+        body {
+
+            padding:
+                9px
+                7px
+                35px;
+        }
+
+
+        .banner-section {
+
+            height:
+                180px;
+
+            border-radius:
+                14px
+                14px
+                0
+                0;
+        }
+
+
+        .profile-header {
+
+            min-height:
+                570px;
+
+            padding:
+                86px
+                16px
+                25px;
+        }
+
+
+        .profile-photo-container {
+
+            width:
+                122px;
+
+            height:
+                122px;
+
+            top:
+                -61px;
+        }
+
+
+        .profile-main-info h1 {
+
+            font-size:
+                1.6rem;
+        }
+
+
+        .headline {
+
+            font-size:
+                0.94rem;
+        }
+
+
+        .tagline {
+
+            font-size:
+                0.9rem;
+        }
+
+
+        .location {
+
+            font-size:
+                0.85rem;
+        }
+
+
+        .edit-btn {
+
+            top:
+                12px;
+
+            right:
+                10px;
+
+            min-width:
+                auto;
+
+            padding:
+                8px
+                13px;
+
+            font-size:
+                12px;
+        }
+
+
+        .stats-bar {
+
+            grid-template-columns:
+                1fr;
+
+            width:
+                100%;
+
+            gap:
+                8px;
+
+            margin-top:
+                20px;
+        }
+
+
+        .stat-box {
+
+            min-height:
+                49px;
+
+            white-space:
+                normal;
+        }
+
+
+        .profile-upload-controls {
+
+            margin-top:
+                25px;
+
+            padding:
+                18px
+                14px;
+
+            gap:
+                14px;
+        }
+
+
+        .upload-heading {
+
+            font-size:
+                14px;
+        }
+
+
+        .image-upload-field {
+
+            padding:
+                14px;
+        }
+
+
+        .image-upload-field
+        input[type="file"] {
+
+            min-height:
+                46px;
+
+            font-size:
+                12px;
+
+            padding:
+                8px;
+        }
+
+
+        .profile-section {
+
+            margin-top:
+                12px;
+
+            padding:
+                21px
+                16px;
+
+            border-radius:
+                12px;
+        }
+
+
+        .profile-section h2 {
+
+            margin-bottom:
+                17px;
+
+            font-size:
+                1.06rem;
+        }
+
+
+        .info-display {
+
+            font-size:
+                14px;
+
+            line-height:
+                1.7;
+        }
+
+
+        .edit-input {
+
+            min-height:
+                46px;
+
+            padding:
+                11px
+                12px;
+
+            font-size:
+                14px;
+        }
+
+
+        textarea.edit-input {
+
+            min-height:
+                135px;
+        }
+
+
+        .completion-box {
+
+            padding:
+                16px;
+        }
+
+
+        .gallery-grid {
+
+            grid-template-columns:
+                1fr;
+
+            gap:
+                15px;
+        }
+
+
+        .gallery-item {
+
+            min-height:
+                255px;
+        }
+
+
+        .gallery-item img {
+
+            height:
+                190px;
+        }
+
+    }
+
+
+    /* =========================================================
+       SMALL MOBILE
+    ========================================================= */
+
+    @media (max-width: 390px) {
+
+        .profile-header {
+
+            min-height:
+                580px;
+        }
+
+
+        .profile-main-info h1 {
+
+            font-size:
+                1.42rem;
+        }
+
+
+        .edit-btn {
+
+            padding:
+                7px
+                11px;
+
+            font-size:
+                11px;
+        }
+
+
+        .profile-upload-controls {
+
+            padding:
+                16px
+                12px;
+        }
+
+
+        .image-upload-field {
+
+            padding:
+                12px;
+        }
+
+    }
+
+</style>
+
+
+</head>
+
+<body>
+
+<div class="profile-container">
+
+
+<!-- =========================================================
+     BANNER
+========================================================== -->
+
+<div class="banner-section">
+
+    <img
+        id="bannerImage"
+        alt="Profile Banner"
+    >
+
+</div>
+
+
+<!-- =========================================================
+     PROFILE CARD
+========================================================== -->
+
+<div class="profile-card">
+
+    <div class="profile-header">
+
+
+        <!-- =================================================
+             EDIT BUTTON
+        ================================================== -->
+
+        <button
+            class="edit-btn"
+            type="button"
+            id="toggleEditBtn"
+            onclick="handleProfileEdit()"
+        >
+            Edit Profile
+        </button>
+
+
+        <!-- =================================================
+             CENTERED PROFILE IMAGE / LOGO
+        ================================================== -->
+
+        <div class="profile-photo-container">
+
+            <img
+                id="profilePic"
+                src=""
+                alt="Profile Picture"
+            >
+
+            <div
+                class="placeholder"
+                id="dpPlaceholder"
+            >
+                Profile Photo
+            </div>
+
+        </div>
+
+
+        <!-- =================================================
+             PROFILE INFORMATION
+        ================================================== -->
+
+        <div class="profile-main-info">
+
+
+            <!-- NAME -->
+
+            <h1 id="view-name">
+                Add Your Name
+            </h1>
+
+            <input
+                type="text"
+                id="edit-name"
+                class="edit-input"
+                placeholder="Full Name"
+            >
+
+
+            <!-- HEADLINE -->
+
+            <div
+                class="headline"
+                id="view-headline"
+            >
+                Add Professional Headline
+            </div>
+
+            <input
+                type="text"
+                id="edit-headline"
+                class="edit-input"
+                placeholder="Software Developer | Designer"
+            >
+
+
+            <!-- TAGLINE -->
+
+            <div
+                class="tagline"
+                id="view-tagline"
+            >
+                Add a professional tagline
+            </div>
+
+            <input
+                type="text"
+                id="edit-tagline"
+                class="edit-input"
+                placeholder="Build. Learn. Create. Grow."
+            >
+
+
+            <!-- LOCATION -->
+
+            <div
+                class="location"
+                id="view-location"
+            >
+                Add Location
+            </div>
+
+            <input
+                type="text"
+                id="edit-location"
+                class="edit-input"
+                placeholder="City, Country"
+            >
+
+
+            <!-- =================================================
+                 DATABASE CONTROLLED STATISTICS
+            ================================================== -->
+
+            <div class="stats-bar">
+
+
+                <!-- CONNECTIONS -->
+
+                <div class="stat-box">
+
+                    Connections:
+
+                    <span id="view-connections">
+                        0
+                    </span>
+
+                </div>
+
+
+                <!-- TEST RATING -->
+
+                <div class="stat-box">
+
+                    Test Rating:
+
+                    <span id="view-rating">
+                        N/A
+                    </span>
+
+                </div>
+
+
+                <!-- GRADE -->
+
+                <div class="stat-box">
+
+                    Grade:
+
+                    <span id="view-grade">
+                        N/A
+                    </span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- =================================================
+             PROFILE PHOTO / BACKGROUND UPLOAD SECTION
+
+             THIS ENTIRE SECTION IS HIDDEN IN NORMAL MODE.
+
+             handleProfileEdit() adds/removes:
+             .show-profile-uploads
+        ================================================== -->
+
+        <div
+            class="profile-upload-controls"
+            id="profileUploadControls"
+        >
+
+
+            <div class="upload-heading">
+
+                Profile Photos & Background
+
+            </div>
+
+
+            <div class="upload-subtitle">
+
+                Update your profile image or background
+                while editing your profile.
+
+            </div>
+
+
+            <!-- =================================================
+                 PROFILE IMAGE / LOGO
+            ================================================== -->
+
+            <div class="image-upload-field">
+
+                <label
+                    for="profilePicInput"
+                >
+                    Profile Image / Logo
+                </label>
+
+
+                <div
+                    class="image-upload-description"
+                >
+                    Choose a square profile photo or
+                    professional logo.
+                </div>
+
+
+                <input
+                    type="file"
+                    id="profilePicInput"
+                    accept="image/*"
+                >
+
+            </div>
+
+
+            <!-- =================================================
+                 BACKGROUND IMAGE
+            ================================================== -->
+
+            <div class="image-upload-field">
+
+                <label
+                    for="bannerUpload"
+                >
+                    Background Image
+                </label>
+
+
+                <div
+                    class="image-upload-description"
+                >
+                    Choose a wide image for your
+                    profile background.
+                </div>
+
+
+                <input
+                    type="file"
+                    id="bannerUpload"
+                    accept="image/*"
+                >
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- =========================================================
+     PROFILE COMPLETION
+========================================================== -->
+
+<div class="profile-section">
+
+    <h2>
+        Profile Completion
+    </h2>
+
+
+    <div class="completion-box">
+
+        <div class="completion-label">
+
+            <span>
+                Completion
+            </span>
+
+            <span id="profileCompletion">
+                0%
+            </span>
+
+        </div>
+
+
+        <div class="completion-track">
+
+            <div
+                id="profileProgress"
+                class="completion-progress"
+            >
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- =========================================================
+     ABOUT
+========================================================== -->
+
+<div class="profile-section">
+
+    <h2>
+        About
+    </h2>
+
+
+    <div
+        id="view-about"
+        class="info-display"
+    >
+        Tell visitors about yourself.
+    </div>
+
+
+    <textarea
+        id="edit-about"
+        class="edit-input"
+        placeholder="Write a professional summary"
+    ></textarea>
+
+</div>
+
+
+<!-- =========================================================
+     CONTACT INFORMATION
+========================================================== -->
+
+<div class="profile-section">
+
+    <h2>
+        Contact Information
+    </h2>
+
+
+    <!-- EMAIL -->
+
+    <div class="contact-field">
+
+        <div
+            id="view-email"
+            class="info-display"
+        >
+            Email not added
+        </div>
+
+        <input
+            type="email"
+            id="edit-email"
+            class="edit-input"
+            placeholder="Email address"
+        >
+
+    </div>
+
+
+    <!-- PHONE -->
+
+    <div class="contact-field">
+
+        <div
+            id="view-phone"
+            class="info-display"
+        >
+            Phone not added
+        </div>
+
+        <input
+            type="text"
+            id="edit-phone"
+            class="edit-input"
+            placeholder="Phone number"
+        >
+
+    </div>
+
+
+    <!-- GITHUB -->
+
+    <div class="contact-field">
+
+        <div
+            id="view-github"
+            class="info-display"
+        >
+            GitHub profile not added
+        </div>
+
+        <input
+            type="url"
+            id="edit-github"
+            class="edit-input"
+            placeholder="https://github.com/username"
+        >
+
+    </div>
+
+
+    <!-- LINKEDIN -->
+
+    <div class="contact-field">
+
+        <div
+            id="view-linkedin"
+            class="info-display"
+        >
+            LinkedIn profile not added
+        </div>
+
+        <input
+            type="url"
+            id="edit-linkedin"
+            class="edit-input"
+            placeholder="https://linkedin.com/in/username"
+        >
+
+    </div>
+
+</div>
+
+
+<!-- =========================================================
+     EDUCATION
+========================================================== -->
+
+<div class="profile-section">
+
+    <h2>
+        Education
+    </h2>
+
+
+    <div
+        id="view-education"
+        class="info-display"
+    >
+        No education added.
+    </div>
+
+
+    <textarea
+        id="edit-education"
+        class="edit-input"
+        placeholder="College, Degree, Duration"
+    ></textarea>
+
+</div>
+
+
+<!-- =========================================================
+     EXPERIENCE
+========================================================== -->
+
+<div class="profile-section">
+
+    <h2>
+        Experience
+    </h2>
+
+
+    <div
+        id="view-experience"
+        class="info-display"
+    >
+        No experience added.
+    </div>
+
+
+    <textarea
+        id="edit-experience"
+        class="edit-input"
+        placeholder="Job title, company, responsibilities"
+    ></textarea>
+
+</div>
+
+
+<!-- =========================================================
+     PROJECTS
+========================================================== -->
+
+<div class="profile-section">
+
+    <h2>
+        Projects
+    </h2>
+
+
+    <div
+        id="view-projects"
+        class="info-display"
+    >
+        No projects added.
+    </div>
+
+
+    <textarea
+        id="edit-projects"
+        class="edit-input"
+        placeholder="Describe your projects"
+    ></textarea>
+
+</div>
+
+
+<!-- =========================================================
+     SKILLS
+========================================================== -->
+
+<div class="profile-section">
+
+    <h2>
+        Skills
+    </h2>
+
+
+    <div
+        id="view-skills"
+        class="info-display"
+    >
+        No skills added.
+    </div>
+
+
+    <input
+        type="text"
+        id="edit-skills"
+        class="edit-input"
+        placeholder="HTML, CSS, JavaScript, Java"
+    >
+
+</div>
+
+
+<!-- =========================================================
+     CERTIFICATIONS
+========================================================== -->
+
+<div class="profile-section">
+
+    <h2>
+        Certifications
+    </h2>
+
+
+    <div
+        id="view-certifications"
+        class="info-display"
+    >
+        No certifications added.
+    </div>
+
+
+    <textarea
+        id="edit-certifications"
+        class="edit-input"
+        placeholder="List your certifications"
+    ></textarea>
+
+</div>
+
+
+<!-- =========================================================
+     ACHIEVEMENTS
+========================================================== -->
+
+<div class="profile-section">
+
+    <h2>
+        Achievements
+    </h2>
+
+
+    <div
+        id="view-achievements"
+        class="info-display"
+    >
+        No achievements added.
+    </div>
+
+
+    <textarea
+        id="edit-achievements"
+        class="edit-input"
+        placeholder="Add achievements"
+    ></textarea>
+
+</div>
+
+
+<!-- =========================================================
+     ACHIEVEMENT GALLERY
+========================================================== -->
+
+<div class="profile-section">
+
+    <h2>
+        Achievement Gallery
+    </h2>
+
+
+    <div class="gallery-grid">
+
+
+        <!-- IMAGE 1 -->
+
+        <div
+            class="gallery-item"
+            data-gallery-edit
+        >
+
+            <img
+                id="achievement-img-1"
+                alt="Achievement 1"
+            >
+
+            <input
+                type="file"
+                class="achievement-upload"
+                accept="image/*"
+            >
+
+        </div>
+
+
+        <!-- IMAGE 2 -->
+
+        <div
+            class="gallery-item"
+            data-gallery-edit
+        >
+
+            <img
+                id="achievement-img-2"
+                alt="Achievement 2"
+            >
+
+            <input
+                type="file"
+                class="achievement-upload"
+                accept="image/*"
+            >
+
+        </div>
+
+
+        <!-- IMAGE 3 -->
+
+        <div
+            class="gallery-item"
+            data-gallery-edit
+        >
+
+            <img
+                id="achievement-img-3"
+                alt="Achievement 3"
+            >
+
+            <input
+                type="file"
+                class="achievement-upload"
+                accept="image/*"
+            >
+
+        </div>
+
+
+        <!-- IMAGE 4 -->
+
+        <div
+            class="gallery-item"
+            data-gallery-edit
+        >
+
+            <img
+                id="achievement-img-4"
+                alt="Achievement 4"
+            >
+
+            <input
+                type="file"
+                class="achievement-upload"
+                accept="image/*"
+            >
+
+        </div>
+
+
+        <!-- IMAGE 5 -->
+
+        <div
+            class="gallery-item"
+            data-gallery-edit
+        >
+
+            <img
+                id="achievement-img-5"
+                alt="Achievement 5"
+            >
+
+            <input
+                type="file"
+                class="achievement-upload"
+                accept="image/*"
+            >
+
+        </div>
+
+
+        <!-- IMAGE 6 -->
+
+        <div
+            class="gallery-item"
+            data-gallery-edit
+        >
+
+            <img
+                id="achievement-img-6"
+                alt="Achievement 6"
+            >
+
+            <input
+                type="file"
+                class="achievement-upload"
+                accept="image/*"
+            >
+
+        </div>
+
+    </div>
+
+
+    <!-- SAVE PROFILE -->
+
+    <button
+        id="saveBtn"
+        class="save-btn"
+        type="button"
+        onclick="saveProfile()"
+    >
+        Save Profile
+    </button>
+
+</div>
+```
+
+</div>
+
+<!-- =========================================================
+     EXISTING PROFILE JAVASCRIPT
+========================================================== -->
+
+<script src="Profilecon.js"></script>
+
+<!-- =========================================================
+     EDIT MODE CONTROLLER
+     
+     This handles ONLY the UI state.
+     
+     It deliberately does not overwrite your existing
+     Profilecon.js functions.
+========================================================== -->
+
+
+</body>
+
+</html>

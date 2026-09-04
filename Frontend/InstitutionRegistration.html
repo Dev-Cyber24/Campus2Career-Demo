@@ -1,0 +1,529 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>
+        Institution Registration | Campus2Career
+    </title>
+
+    <link
+        rel="stylesheet"
+        href="InstitutionRegistration.css"
+    >
+
+</head>
+
+
+<body>
+
+    <div class="page">
+
+        <div class="register-card">
+
+
+            <!-- ================================= -->
+            <!-- HEADER -->
+            <!-- ================================= -->
+
+            <div class="header">
+
+
+                <!-- ================================= -->
+                <!-- CAMPUS2CAREER LOGO -->
+                <!-- ================================= -->
+
+                <div class="brand">
+
+                    <img
+                        src="logo.png"
+                        alt="Campus2Career Logo"
+                    >
+
+                </div>
+
+
+                <!-- ================================= -->
+                <!-- PORTAL LABEL -->
+                <!-- ================================= -->
+
+                <div class="portal-label">
+                    Institution Portal
+                </div>
+
+            </div>
+
+
+            <!-- ================================= -->
+            <!-- TITLE -->
+            <!-- ================================= -->
+
+            <div class="title-section">
+
+                <h1>
+                    Register Your Institution
+                </h1>
+
+                <p>
+                    Create an official institution account
+                    on Campus2Career.
+                </p>
+
+            </div>
+
+
+            <!-- ================================= -->
+            <!-- MESSAGE -->
+            <!-- ================================= -->
+
+            <div
+                id="message"
+                class="message"
+            ></div>
+
+
+            <!-- ================================= -->
+            <!-- REGISTRATION FORM -->
+            <!-- ================================= -->
+
+            <form
+                id="institutionRegistrationForm"
+            >
+
+
+                <!-- ================================= -->
+                <!-- INSTITUTION INFORMATION -->
+                <!-- ================================= -->
+
+                <div class="section-title">
+                    Institution Information
+                </div>
+
+
+                <div class="form-grid">
+
+
+                    <!-- Institution Name -->
+
+                    <div class="form-group full">
+
+                        <label for="institutionName">
+                            Institution Name
+                            <span>*</span>
+                        </label>
+
+                        <input
+                            type="text"
+                            id="institutionName"
+                            name="institutionName"
+                            placeholder="Enter institution name"
+                            maxlength="255"
+                            required
+                        >
+
+                    </div>
+
+
+                    <!-- Institution Type -->
+
+                    <div class="form-group">
+
+                        <label for="institutionType">
+                            Institution Type
+                            <span>*</span>
+                        </label>
+
+                        <select
+                            id="institutionType"
+                            name="institutionType"
+                            required
+                        >
+
+                            <option value="">
+                                Select institution type
+                            </option>
+
+                            <option value="University">
+                                University
+                            </option>
+
+                            <option value="College">
+                                College
+                            </option>
+
+                            <option value="School">
+                                School
+                            </option>
+
+                            <option value="Institute">
+                                Institute
+                            </option>
+
+                            <option value="Training Center">
+                                Training Center
+                            </option>
+
+                            <option value="Other">
+                                Other
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <!-- Email -->
+
+                    <div class="form-group">
+
+                        <label for="email">
+                            Official Email
+                            <span>*</span>
+                        </label>
+
+                        <input
+                            type="email"
+                            id="email"
+                            name="email"
+                            placeholder="institution@example.com"
+                            maxlength="255"
+                            autocomplete="email"
+                            required
+                        >
+
+                    </div>
+
+
+                    <!-- Phone -->
+
+                    <div class="form-group">
+
+                        <label for="phone">
+                            Phone Number
+                        </label>
+
+                        <input
+                            type="tel"
+                            id="phone"
+                            name="phone"
+                            placeholder="+91 9876543210"
+                            maxlength="30"
+                            autocomplete="tel"
+                        >
+
+                    </div>
+
+
+                    <!-- Website -->
+
+                    <div class="form-group">
+
+                        <label for="website">
+                            Website
+                        </label>
+
+                        <input
+                            type="url"
+                            id="website"
+                            name="website"
+                            placeholder="https://www.example.edu"
+                        >
+
+                    </div>
+
+                </div>
+
+
+                <!-- ================================= -->
+                <!-- LOCATION -->
+                <!-- ================================= -->
+
+                <div class="section-title">
+                    Location
+                </div>
+
+
+                <div class="form-grid">
+
+
+                    <!-- Address -->
+
+                    <div class="form-group full">
+
+                        <label for="address">
+                            Address
+                        </label>
+
+                        <textarea
+                            id="address"
+                            name="address"
+                            rows="3"
+                            placeholder="Enter complete institution address"
+                        ></textarea>
+
+                    </div>
+
+
+                    <!-- City -->
+
+                    <div class="form-group">
+
+                        <label for="city">
+                            City
+                        </label>
+
+                        <input
+                            type="text"
+                            id="city"
+                            name="city"
+                            placeholder="City"
+                        >
+
+                    </div>
+
+
+                    <!-- State -->
+
+                    <div class="form-group">
+
+                        <label for="state">
+                            State
+                        </label>
+
+                        <input
+                            type="text"
+                            id="state"
+                            name="state"
+                            placeholder="State"
+                        >
+
+                    </div>
+
+
+                    <!-- Country -->
+
+                    <div class="form-group">
+
+                        <label for="country">
+                            Country
+                        </label>
+
+                        <input
+                            type="text"
+                            id="country"
+                            name="country"
+                            value="India"
+                            placeholder="Country"
+                        >
+
+                    </div>
+
+                </div>
+
+
+                <!-- ================================= -->
+                <!-- DESCRIPTION -->
+                <!-- ================================= -->
+
+                <div class="section-title">
+                    Institution Description
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="description">
+                        About Institution
+                    </label>
+
+                    <textarea
+                        id="description"
+                        name="description"
+                        rows="5"
+                        maxlength="2000"
+                        placeholder="Describe your institution, courses, campus, placement activities, etc."
+                    ></textarea>
+
+                    <small>
+                        Maximum 2000 characters
+                    </small>
+
+                </div>
+
+
+                <!-- ================================= -->
+                <!-- LOGIN SECURITY -->
+                <!-- ================================= -->
+
+                <div class="section-title">
+                    Login Security
+                </div>
+
+
+                <div class="form-grid">
+
+
+                    <!-- Password -->
+
+                    <div class="form-group">
+
+                        <label for="password">
+                            Password
+                            <span>*</span>
+                        </label>
+
+                        <div class="password-box">
+
+                            <input
+                                type="password"
+                                id="password"
+                                name="password"
+                                placeholder="Create password"
+                                autocomplete="new-password"
+                                required
+                            >
+
+                            <button
+                                type="button"
+                                id="togglePassword"
+                            >
+                                Show
+                            </button>
+
+                        </div>
+
+
+                        <!-- Password rules -->
+
+                        <div class="password-rules">
+
+                            <span id="ruleLength">
+                                At least 8 characters
+                            </span>
+
+                            <span id="ruleUpper">
+                                One uppercase letter
+                            </span>
+
+                            <span id="ruleLower">
+                                One lowercase letter
+                            </span>
+
+                            <span id="ruleNumber">
+                                One number
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- Confirm Password -->
+
+                    <div class="form-group">
+
+                        <label for="confirmPassword">
+                            Confirm Password
+                            <span>*</span>
+                        </label>
+
+                        <input
+                            type="password"
+                            id="confirmPassword"
+                            name="confirmPassword"
+                            placeholder="Confirm password"
+                            autocomplete="new-password"
+                            required
+                        >
+
+                        <div
+                            id="passwordMatch"
+                            class="password-match"
+                        ></div>
+
+                    </div>
+
+                </div>
+
+
+                <!-- ================================= -->
+                <!-- TERMS -->
+                <!-- ================================= -->
+
+                <div class="terms">
+
+                    <label>
+
+                        <input
+                            type="checkbox"
+                            id="agreeTerms"
+                            required
+                        >
+
+                        <span>
+                            I confirm that I am authorized
+                            to register this institution
+                            on Campus2Career.
+                        </span>
+
+                    </label>
+
+                </div>
+
+
+                <!-- ================================= -->
+                <!-- SUBMIT -->
+                <!-- ================================= -->
+
+                <button
+                    type="submit"
+                    id="registerBtn"
+                    class="register-btn"
+                >
+                    Create Institution Account
+                </button>
+
+
+                <!-- ================================= -->
+                <!-- LOGIN LINK -->
+                <!-- ================================= -->
+
+                <div class="login-link">
+
+                    Already registered?
+
+                    <a
+                        href="InstitutionLogin.html"
+                    >
+                        Institution Login
+                    </a>
+
+                </div>
+
+            </form>
+
+        </div>
+
+    </div>
+
+
+    <!-- ===================================== -->
+    <!-- JAVASCRIPT -->
+    <!-- ===================================== -->
+
+    <script
+        src="InstitutionRegistration.js"
+    ></script>
+
+</body>
+
+</html>
+
